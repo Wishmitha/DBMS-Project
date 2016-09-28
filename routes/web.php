@@ -16,5 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('test', function () {
-    return view('Test/test');
+    $string = ["There are no srings tangled"];
+    return view('Test/test',compact('string'));
 });

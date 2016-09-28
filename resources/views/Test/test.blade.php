@@ -75,8 +75,12 @@
 
     <div class="content">
         <div class="title m-b-md">
-            Now Fuck U!
+            Puck U!
         </div>
+
+        @foreach($string as $st)
+            {{$st}}
+        @endforeach
 
         <div class="links">
             <a href="https://laravel.com/docs">Documentation</a>
