@@ -11,11 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route :: get('cards','CardsController@index');
 
-Route::get('test', function () {
-    $string = ["There are no srings tangled"];
-    return view('Test/test',compact('string'));
-});
+Route :: get('cards/{id}','CardsController@show');
