@@ -14,3 +14,7 @@
 Route :: get('cards','CardsController@index');
 
 Route :: get('cards/{id}','CardsController@show');
+
+Route::get('/', function () {
+    return view('welcome');
+});
