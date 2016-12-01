@@ -26,7 +26,10 @@ class Student extends Model{
     private $last_name;
     private $batch_id;
 
-    private $activities;
+    //other attributes
+
+    private $activities; // activities done by a paticular student
+    private $achivements; // achievemnts of a paticular student
 
     // set attributes
 
