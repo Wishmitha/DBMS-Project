@@ -15,8 +15,6 @@ class Student extends Model{
 	//protected $table = 'students';
 	//public $timestamps = true;
 
-
-
 	//protected $dates = ['deleted_at'];
 	//protected $guarded = array('student_id');
     //====================================================
@@ -28,10 +26,12 @@ class Student extends Model{
     private $last_name;
     private $batch_id;
 
+    private $activities;
+
     // set attributes
 
     public function setID($student_id){
-        return $this->student_id = $student_id;
+        $this->student_id = $student_id;
     }
 
     public function setFirstName($first_name){
@@ -44,7 +44,7 @@ class Student extends Model{
 
     public function setBatchID($batch_id)
     {
-        return $this->batch_id = $batch_id;
+        $this->batch_id = $batch_id;
     }
 
     // get attributes

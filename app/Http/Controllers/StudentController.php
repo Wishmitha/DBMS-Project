@@ -24,16 +24,7 @@ class StudentController extends Controller {
    */
   public function create($id)
   {
-      $query = DB::select("SELECT * FROM students WHERE student_id=?",[$id]);
 
-      $student = new Student;
-
-      $student->setID($query[0]->student_id);
-      $student->setFirstName($query[0]->first_name);
-      $student->setLastName($query[0]->last_name);
-      $student->setBatchID($query[0]->batch_id);
-
-      return $student->getName()." ".$student->getID()." ".$student->getBatchID();
 
     
   }
@@ -56,6 +47,17 @@ class StudentController extends Controller {
    */
   public function show($id)
   {
+
+      $query = DB::select("SELECT * FROM students WHERE student_id=?",[$id]);
+
+      $student = new Student();
+
+      $student->setID($query[0]->student_id);
+      $student->setFirstName($query[0]->first_name);
+      $student->setLastName($query[0]->last_name);
+      $student->setBatchID($query[0]->batch_id);
+
+      return $student->getName()." ".$student->getID()." ".$student->getBatchID();
     
   }
 
@@ -91,7 +93,7 @@ class StudentController extends Controller {
   {
     
   }
-  
+
 }
 
 ?>
