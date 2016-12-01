@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Student;
+
 class StudentController extends Controller {
 
   /**
@@ -21,6 +23,16 @@ class StudentController extends Controller {
    */
   public function create()
   {
+
+      $student = new Student;
+
+      $student.setID(123);
+      $student.setFirstName('lol');
+      $student.setLastName('lolol');
+      $student.setBatchID(14);
+
+      return $student;
+
     
   }
 
