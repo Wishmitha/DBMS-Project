@@ -35,4 +35,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('student', 'StudentController@create');
+Route::get('student/{id}', 'StudentController@create');

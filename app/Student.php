@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+
+//use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class Student extends Model{
@@ -20,32 +21,30 @@ class Student extends Model{
 	//protected $guarded = array('student_id');
     //====================================================
 
+    //attributes
+
+    private $student_id;
     private $first_name;
     private $last_name;
     private $batch_id;
 
     // set attributes
 
-    function _construct(){
-
+    public function setID($student_id){
+        return $this->student_id = $student_id;
     }
 
     public function setFirstName($first_name){
-        this.$first_name = $first_name;
+        $this->first_name = $first_name;
     }
 
     public function setLastName($last_name){
-        this.$last_name = $last_name;
+        $this->last_name = $last_name;
     }
 
-    public function setID()
+    public function setBatchID($batch_id)
     {
-        return $this->student_id;
-    }
-
-    public function setBatchID()
-    {
-        return $this->batch_id;
+        return $this->batch_id = $batch_id;
     }
 
     // get attributes

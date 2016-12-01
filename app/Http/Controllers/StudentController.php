@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Student;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller {
 
@@ -21,17 +22,18 @@ class StudentController extends Controller {
    *
    * @return Response
    */
-  public function create()
+  public function create($id)
   {
+      $query = DB::select("SELECT * FROM students WHERE student_id=?",[$id]);
 
       $student = new Student;
 
-      $student.setID(123);
-      $student.setFirstName('lol');
-      $student.setLastName('lolol');
-      $student.setBatchID(14);
+      $student->setID($query[0]->student_id);
+      $student->setFirstName($query[0]->first_name);
+      $student->setLastName($query[0]->last_name);
+      $student->setBatchID($query[0]->batch_id);
 
-      return $student;
+      return $student->getName()." ".$student->getID()." ".$student->getBatchID();
 
     
   }
