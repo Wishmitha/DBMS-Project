@@ -50,6 +50,11 @@ class Student extends Model{
         $this->batch_id = $batch_id;
     }
 
+    public function setActivities($activities)
+    {
+        $this->activities=$activities;
+    }
+
     // get attributes
 
     public function getName(){
@@ -66,12 +71,17 @@ class Student extends Model{
         return $this->batch_id;
     }
 
+    public function getActivities()
+    {
+        return $this->activities;
+    }
+
     // other models
 
-    public function getActivities($id)
+    /*public function getActivities($id)
     {
         return $this->hasMany('App\Student_activity')->first()->act_id;
-    }
+    }*/
 
 	public function getLogin()
 	{

@@ -48,16 +48,22 @@ class StudentController extends Controller {
   public function show($id)
   {
 
-      $query = DB::select("SELECT * FROM students WHERE student_id=?",[$id]);
+      $queryStudent = DB::select("SELECT * FROM students WHERE student_id=?",[$id]);
 
       $student = new Student();
 
-      $student->setID($query[0]->student_id);
-      $student->setFirstName($query[0]->first_name);
-      $student->setLastName($query[0]->last_name);
-      $student->setBatchID($query[0]->batch_id);
+      $student->setID($queryStudent[0]->student_id);
+      $student->setFirstName($queryStudent[0]->first_name);
+      $student->setLastName($queryStudent[0]->last_name);
+      $student->setBatchID($queryStudent[0]->batch_id);
 
-      return $student->getName()." ".$student->getID()." ".$student->getBatchID();
+      $student->setActivities($this->getActivities($student->getID()));
+
+
+
+      return $student->getName()." ".$student->getID()." ".$student->getBatchID()." ".var_dump($student->getActivities());
+
+
     
   }
 
@@ -92,6 +98,18 @@ class StudentController extends Controller {
   public function destroy($id)
   {
     
+  }
+
+  public function getActivities($stu_id){
+
+      $queryActivities = DB::select("SELECT act_id FROM student_activity WHERE stu_id=?",[$stu_id]);
+      $activities=[];
+
+      for($i=0;$i<count($queryActivities);$i++){
+          array_push($activities,$queryActivities[$i]->act_id);
+      }
+
+      return $activities;
   }
 
 }
