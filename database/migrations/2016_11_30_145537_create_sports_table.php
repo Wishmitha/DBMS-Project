@@ -10,9 +10,9 @@ class CreateSportsTable extends Migration {
 		Schema::create('sports', function(Blueprint $table) {
 			$table->increments('sport_id');
 			$table->string('sport_name', 50);
+            $table->binary('logo')->nullable();;
 			$table->string('team', 50);
-			$table->binary('logo');
-			$table->text('description');
+			$table->text('description')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

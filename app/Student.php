@@ -29,7 +29,7 @@ class Student extends Model{
     //other attributes
 
     private $activities; // activities done by a paticular student
-    private $achivements; // achievemnts of a paticular student
+    //private $achivements; // achievemnts of a paticular student
 
     // set attributes
 

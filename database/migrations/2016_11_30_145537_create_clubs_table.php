@@ -12,6 +12,7 @@ class CreateClubsTable extends Migration {
 			$table->string('club_name', 50);
 			$table->binary('logo')->nullable();
 			$table->string('division', 50);
+            $table->text('description')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});
