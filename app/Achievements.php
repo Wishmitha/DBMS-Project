@@ -19,25 +19,15 @@ class Achievements extends Model {
 
     // attributes
 
-    private $ach_id;
-    private $act_id;
-    private $stu_id;
+    public $timestamps = true;
+
+
     private $position;
     private $description;
+    private $date;
 
     // set attributes
 
-    public function setID($ach_id){
-        $this->ach_id = $ach_id;
-    }
-
-    public function setActivityID($act_id){
-        $this->act_id = $act_id;
-    }
-
-    public function setStudentID($stu_id){
-        $this->stu_id = $stu_id;
-    }
 
     public function setPosition($position)
     {
@@ -49,19 +39,13 @@ class Achievements extends Model {
         $this->description = $description;
     }
 
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
     // get attributes
 
-    public function getID(){
-        return $this->ach_id;
-    }
-
-    public function getActivityID(){
-        return $this->act_id;
-    }
-
-    public function getStudentID(){
-        return $this->stu_id;
-    }
 
     public function getPosition()
     {
@@ -72,6 +56,12 @@ class Achievements extends Model {
     {
         return $this->description;
     }
+
+    public function getDate()
+    {
+        return $this->date;
+    }
+
 
     // other models
 

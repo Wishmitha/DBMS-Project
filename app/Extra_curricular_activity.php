@@ -17,6 +17,10 @@ class Extra_curricular_activity extends Model {
 	protected $dates = ['deleted_at'];
     =================================================*/
 
+    //attributes
+
+    public $timestamps = true;
+
     private $activity_id;
     private $type;
     private $sp_id;

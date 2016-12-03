@@ -47,7 +47,6 @@ class StudentController extends Controller {
    */
   public function show($id)
   {
-
       $queryStudent = DB::select("SELECT * FROM students WHERE student_id=?",[$id]);
 
       $student = new Student();
@@ -59,12 +58,8 @@ class StudentController extends Controller {
 
       $student->setActivities($this->getActivities($student->getID()));
 
+      return $student->getName()." ".$student->getID()." ".$student->getBatchID()." ".$student->getActivities()[0]->getAchievements()[0]->getPosition();
 
-
-      return $student->getName()." ".$student->getID()." ".$student->getBatchID()." ".var_dump($student->getActivities());
-
-
-    
   }
 
   /**
@@ -109,10 +104,20 @@ class StudentController extends Controller {
 
           $activity = [];
           $activityClass=[];
+          $achievements=[];
 
           $actID = $queryStudentActivities[$i]->act_id;
 
           $queryActivities = DB::select("SELECT * FROM extra_curricular_activities WHERE activity_id=?",[$actID]);
+
+          $queryAchievements=DB::select("SELECT * FROM achievements WHERE act_id=? AND stu_id=?",[$actID,$stu_id]);
+
+          for ($j=0;$j<count($queryAchievements);$j++){
+              array_push($achievements,
+                  [$queryAchievements[$j]->position,
+                  $queryAchievements[$j]->description,
+                  $queryAchievements[$j]->created_at]);
+          }
 
 
           if($queryActivities[0]->type == "Sport"){
@@ -150,11 +155,13 @@ class StudentController extends Controller {
           array_push($activity,
               [$queryStudentActivities[$i]->role,
               $queryStudentActivities[$i]->effort,
+              $queryActivities[0]->defined_effort,
               $queryStudentActivities[$i]->joined,
               $queryStudentActivities[$i]->is_validated]);
 
           array_push($activity,$activityClass);
           $activity=array_flatten($activity);
+          array_push($activity,$achievements);
 
 
           array_push($activities,$activity);
