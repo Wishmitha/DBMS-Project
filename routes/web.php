@@ -38,3 +38,7 @@ Route::get('/', function () {
 Route::get('student/{id}', 'StudentController@show');
 Route::get('achievement/{id}', 'AchievementsController@show');
 Route::get('activity/{id}', 'Extra_curricular_activityController@show');
+Auth::routes();
+
+
+Route::get('/home', 'HomeController@index');

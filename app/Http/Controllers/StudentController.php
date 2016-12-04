@@ -58,7 +58,7 @@ class StudentController extends Controller {
 
       $student->setActivities($this->getActivities($student->getID()));
 
-      return $student->getName()." ".$student->getID()." ".$student->getBatchID()." ".$student->getActivities()[0]->getAchievements()[0]->getPosition();
+      return $student->getName()." ".$student->getID()." ".$student->getBatchID()." ".$student->getActivities()[0]->getAchievements()[0]->getDescription();
 
   }
 
