@@ -49,22 +49,22 @@ class Student_login extends Model {
 
     //get methods
 
-    public function getUsername($username)
+    public function getUsername()
     {
         return $this->username;
     }
 
-    public function getPassword($password)
+    public function getPassword()
     {
         return $this->password;
     }
 
-    public function getCreateDate($created_at)
+    public function getCreateDate()
     {
         return $this->created_at;
     }
 
-    public function getUpdateDate($updated_at)
+    public function getUpdateDate()
     {
         return $this->updated_at;
     }

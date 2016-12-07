@@ -51,14 +51,19 @@ class StudentController extends Controller {
 
       $student = new Student();
 
+      // basic attributes of the students
       $student->setID($queryStudent[0]->student_id);
       $student->setFirstName($queryStudent[0]->first_name);
       $student->setLastName($queryStudent[0]->last_name);
       $student->setBatchID($queryStudent[0]->batch_id);
 
+      // set activity list
       $student->setActivities($this->getActivities($student->getID()));
 
-      return $student->getName()." ".$student->getID()." ".$student->getBatchID()." ".$student->getActivities()[1]->getAchievements()[0]->getDescription();
+      // set login
+      $student->setLogin($this->getLogin($student->getID()));
+
+      return $student->getName()." ".$student->getID()." ".$student->getBatchID()." ".$student->getLogin()->getPassword();
 
   }
 
@@ -169,6 +174,14 @@ class StudentController extends Controller {
       }
 
       return $activities;
+  }
+
+  public function getLogin($stu_id){
+
+      $queryStudentLogin = DB::select("SELECT * FROM student_login WHERE stu_id=?",[$stu_id]);
+
+      return $queryStudentLogin;
+
   }
 
 }
