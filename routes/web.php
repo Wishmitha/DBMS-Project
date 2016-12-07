@@ -38,6 +38,12 @@ Route::get('/', function () {
 Route::get('student/{id}', 'StudentController@show');
 Route::get('achievement/{id}', 'AchievementsController@show');
 Route::get('activity/{id}', 'Extra_curricular_activityController@show');
+
+Route::get('viewDev', function () {
+    return view('logins/student_login');
+});
+
+
 Auth::routes();
 
 
