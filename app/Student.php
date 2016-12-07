@@ -28,6 +28,7 @@ class Student extends Model{
 
     //other attributes
 
+    private $login;
     private $activities = []; // activities done by a paticular student
     //private $achivements; // achievemnts of a paticular student
 
@@ -74,6 +75,10 @@ class Student extends Model{
 
     }
 
+    public function setLogin($login){
+
+    }
+
     // get attributes
 
     public function getName()
@@ -91,6 +96,10 @@ class Student extends Model{
         return $this->batch_id;
     }
 
+    public function getLogin(){
+        return $this->login;
+    }
+
     public function getActivities()
     {
         return $this->activities;
@@ -103,10 +112,10 @@ class Student extends Model{
         return $this->hasMany('App\Student_activity')->first()->act_id;
     }*/
 
-	public function getLogin()
+	/*public function getLogin()
 	{
 		return $this->hasOne('Student_login');
-	}
+	}*/
 
 	public function getAchievement()
 	{
