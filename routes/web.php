@@ -35,16 +35,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('student/{id}', 'StudentController@show');
-Route::get('achievement/{id}', 'AchievementsController@show');
-Route::get('activity/{id}', 'Extra_curricular_activityController@show');
+Route::get('student/{id}',[
+    'uses' => 'StudentController@show',
+    'as' => 'student'
+]);
 
-Route::get('viewDev', function () {
-    return view('logins/student_login');
-});
+Route::get('student_login', ['uses' => function () {
+    return view('logins/student_login');},
+    'as'=>'login_form']);
 
-
-Auth::routes();
-
+Route::post('/login', [
+    'uses' => 'StudentController@login',
+    'as' => 'login'
+]);
 
 Route::get('/home', 'HomeController@index');
+
+/*Route::get('achievement/{id}', 'AchievementsController@show');
+Route::get('activity/{id}', 'Extra_curricular_activityController@show');*/

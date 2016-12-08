@@ -56,7 +56,9 @@ class Student extends Model{
 
     public function setActivities($activities)
     {
+
         for($i=0;$i<count($activities);$i++){
+
             $activity = new Student_activity();
 
             $activity->setRole($activities[$i][0]);
@@ -126,9 +128,9 @@ class Student extends Model{
 		return $this->hasOne('Student_login');
 	}*/
 
-	public function getAchievement()
+	/*public function getAchievement()
 	{
 		return $this->hasMany('Achievements');
-	}
+	}*/
 
 }

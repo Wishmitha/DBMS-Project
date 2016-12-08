@@ -45,7 +45,7 @@ class AchievementsController extends Controller {
    */
   public function show($id)
   {
-      $query = DB::select("SELECT * FROM achievements WHERE ach_id=?",[$id]);
+      /*$query = DB::select("SELECT * FROM achievements WHERE ach_id=?",[$id]);
 
       $achievement = new Achievements();
 
@@ -57,7 +57,7 @@ class AchievementsController extends Controller {
 
       //return $query[0]->stu_id;
 
-      return $achievement->getID()." ".$achievement->getStudentID()." ".$achievement->getPosition()." ".$achievement->getDescription();
+      return $achievement->getID()." ".$achievement->getStudentID()." ".$achievement->getPosition()." ".$achievement->getDescription();*/
   }
 
   /**
