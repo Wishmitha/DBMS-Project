@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\DB;
  * Time: 1:42 PM
  */
 class StudentDAO
+/*
+ * A data access obeject which processes queries and return temperorary student object for data accessing
+*/
 {
 
     public function create($id)
