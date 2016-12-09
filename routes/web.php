@@ -35,6 +35,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('supervisor/{id}',[
+    'uses' => 'SupervisorController@show',
+    'as' => 'supervisor'
+]);
+
+// confirmed routes
+
 Route::get('student/{id}',[
     'uses' => 'StudentController@show',
     'as' => 'student'

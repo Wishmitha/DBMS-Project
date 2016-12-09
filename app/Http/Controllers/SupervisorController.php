@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DAO\SupervisorDAO;
+
 class SupervisorController extends Controller {
 
   /**
@@ -42,7 +44,12 @@ class SupervisorController extends Controller {
    */
   public function show($id)
   {
-    
+      $supervisorDAO = new SupervisorDAO();
+      $supervisor = $supervisorDAO -> create($id);
+
+      //return $supervisor->getID()." ".$supervisor->getName()." ".$supervisor->getField();
+
+      return var_dump($supervisor);
   }
 
   /**

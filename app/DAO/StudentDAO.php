@@ -3,7 +3,7 @@
 namespace App\DAO;
 
 use App\Student;
-use function array_push;
+//use function array_push;
 use Illuminate\Support\Facades\DB;
 
 /**

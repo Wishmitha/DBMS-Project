@@ -72,7 +72,7 @@ class Supervisor extends Model {
         return $this->first_name." ".$this->last_name;
     }
 
-    public function getField($field)
+    public function getField()
     {
         return $this->field;
     }
