@@ -1,0 +1,5 @@
+Route::get('student', function () {
+    $student = DB::select("SELECT * FROM students WHERE student_id=?",[140392]);
+    echo serialize($student).'<br>';
+    echo $student[0]->first_name;
+});

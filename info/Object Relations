@@ -1,0 +1,23 @@
+===========
+1. Student
+===========
+
+Student -> Student_activity -> Achievement
+	   [getActivities()]   [getAchievements()]
+
+* Student has a list of Student_activity object type.
+* Student_activity has a list of Achievement object type.
+
+==============
+2. Supervisor
+==============
+
+Supervisor -> Supervisor_activity -> Student ------> Student_activity -> Achievement
+	      [getActivities()]      [getStudents()] [getActivities()]   [getAchievements()] 
+   
+* Supervisor has a list of Supervisor_activity object type.
+* Supervisor_activity has a list of Student object type.
+* Student has a list of Student_activity object type. (This only contains activities related to the supervisor.)
+* Student_activity has a list of Achievement object type.
+
+

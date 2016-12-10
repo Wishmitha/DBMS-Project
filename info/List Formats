@@ -1,0 +1,47 @@
+1) Student Activity Array
+=========================
+
+A 2D array : Each array contains information about a activity
+
+Inner Activity Array Format
+---------------------------
+
+[0] -> role
+[1] -> actual effort
+[2] -> defined effort
+[3] -> joined_date
+[4] -> is_verified
+[5] -> club/sport/competition
+[6] -> logo
+[7] -> division/team/host 
+[8] -> description
+[9] -> achievements
+
+[9]-> Achievements Array Format
+-------------------------------
+
+[0] -> position
+[1] -> description (what did you win?)
+[2] -> date
+
+
+2) Supervisor Activity Array
+============================
+
+A 2D array : Outer array includes basic info about the activity. Student sub array contains student objects with all necessary details   
+
+Inner Activity Array Format
+---------------------------
+
+[0] -> club/sport/competition
+[1] -> logo
+[2] -> division/team/host 
+[3] -> description
+[4] -> students
+
+[4] -> students array format
+-----------------------------
+
+Student objects with all studetn and their activity details.
+
+
