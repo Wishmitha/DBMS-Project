@@ -49,6 +49,9 @@ class SupervisorController extends Controller {
 
       //return $supervisor->getID()." ".$supervisor->getName()." ".$supervisor->getField();
 
+      /*return $supervisor->getActivities()[0]->getStudents()[1]->getName()." ".$supervisor->getActivities()[0]->getStudents()[1]->getActivities()[0]->getRole()." ".$supervisor->getActivities()[0]->getStudents()[1]->getActivities()[0]->getActivity()
+          .'<br>'.$supervisor->getActivities()[1]->getStudents()[1]->getName()." ".$supervisor->getActivities()[1]->getStudents()[1]->getActivities()[0]->getRole()." ".$supervisor->getActivities()[1]->getStudents()[1]->getActivities()[0]->getActivity();*/
+
       return var_dump($supervisor);
   }
 

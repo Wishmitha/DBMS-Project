@@ -45,6 +45,7 @@ class StudentDAO
 
     }
 
+
     public function getActivities($stu_id){
 
         $queryStudentActivities = DB::select("SELECT * FROM student_activity WHERE stu_id=?",[$stu_id]);

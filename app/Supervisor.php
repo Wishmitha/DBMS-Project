@@ -50,7 +50,18 @@ class Supervisor extends Model {
 
     public function setActivities($activities)
     {
+        for($i=0;$i<count($activities);$i++){
 
+            $activity = new Supervisor_activity();
+
+            $activity->setActivity($activities[$i][0]);
+            $activity->setLogo($activities[$i][1]);
+            $activity->setDiv($activities[$i][2]);
+            $activity->setDescription($activities[$i][3]);
+            $activity->setStudents($activities[$i][4]);
+
+            array_push($this->activities,$activity);
+        }
 
     }
 
