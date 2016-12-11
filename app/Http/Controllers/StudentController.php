@@ -58,7 +58,10 @@ class StudentController extends Controller {
       $student = $studentDAO->create($id);
       //return $student->getName()." ".$student->getID()." ".$student->getLogin()->getUsername()." ".$student->getLogin()->getPassword()." ".$student->getActivities()[0]->getAchievements()[0]->getDescription();
 
-      return var_dump($student);
+      return view('student/main')->with(['student' => $student]);
+
+      return var_dump((array)$student);
+
   }
 
   /**

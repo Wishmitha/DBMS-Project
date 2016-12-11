@@ -105,7 +105,7 @@ class SupervisorController extends Controller {
         $supID = $supervisorDAO->getID($username);
 
         if($supID!=null) {
-            
+
             $supervisor = $supervisorDAO->create($supID);
 
             if ($supervisor != null) {

@@ -21,8 +21,6 @@
 
 <body>
 
-@include('layouts.components.navbar')
-
 @yield('content')
 
 @yield('footer')

@@ -75,6 +75,19 @@ Route::post('/login_sup', [
 
 //------------------------------------------------//
 
+//--------------View Developmement---------------//
+
+/*Route::get('test', function () {
+    return view('student/main');
+});
+
+Route::get('student/{id}',[
+    'uses' => 'StudentController@show',
+    'as' => 'student'
+]);*/
+
+//-----------------------------------------------//
+
 Route::get('/home', 'HomeController@index');
 
 /*Route::get('achievement/{id}', 'AchievementsController@show');
