@@ -62,7 +62,9 @@ supervisors
 ============
 
 INSERT INTO `exacutor`.`supervisors`(`first_name`,`last_name`,`field`,`created_at`,`updated_at`)VALUES('Michael','Keaton','Club','2016/12/09','2016/12/09');
+
 INSERT INTO `exacutor`.`supervisors`(`first_name`,`last_name`,`field`,`created_at`,`updated_at`)VALUES('David','Owen','Club','2016/12/09','2016/12/09');
+
 INSERT INTO `exacutor`.`supervisors`(`first_name`,`last_name`,`field`,`created_at`,`updated_at`)VALUES('Tom','Holland','Club','2016/12/11','2016/12/11');
 
 ====================
@@ -70,8 +72,22 @@ supervisor_activity
 ====================
 
 INSERT INTO `exacutor`.`supervisor_activity`(`sup_id`,`act_id`,`created_at`,`updated_at`)VALUES(1,1,'2016/12/09','2016/12/09');
+
 INSERT INTO `exacutor`.`supervisor_activity`(`sup_id`,`act_id`,`created_at`,`updated_at`)VALUES(2,2,'2016/12/09','2016/12/09');
+
 INSERT INTO `exacutor`.`supervisor_activity`(`sup_id`,`act_id`,`created_at`,`updated_at`)VALUES(3,1,'2016/12/11','2016/12/11');
+
 INSERT INTO `exacutor`.`supervisor_activity`(`sup_id`,`act_id`,`created_at`,`updated_at`)VALUES(3,2,'2016/12/11','2016/12/11');
+
+====================
+supervisor_activity
+====================
+
+INSERT INTO `exacutor`.`supervisor_login`(`sup_id`,`username`,`password`,`created_at`,`updated_at`) VALUES (1,'Keaton','wolfpack123','2016/12/11','2016/12/11');
+
+INSERT INTO `exacutor`.`supervisor_login`(`sup_id`,`username`,`password`,`created_at`,`updated_at`) VALUES (2,'Owen','wolfpack123','2016/12/11','2016/12/11');
+
+INSERT INTO `exacutor`.`supervisor_login`(`sup_id`,`username`,`password`,`created_at`,`updated_at`) VALUES (3,'Holland','wolfpack123','2016/12/11','2016/12/11');
+
 
 

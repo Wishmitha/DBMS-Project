@@ -35,13 +35,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('supervisor/{id}',[
-    'uses' => 'SupervisorController@show',
-    'as' => 'supervisor'
-]);
 
 // confirmed routes
 
+
+//--------------------Student----------------------//
 Route::get('student/{id}',[
     'uses' => 'StudentController@show',
     'as' => 'student'
@@ -51,10 +49,31 @@ Route::get('student_login', ['uses' => function () {
     return view('logins/student_login');},
     'as'=>'login_form']);
 
-Route::post('/login', [
+Route::post('/login_stu', [
     'uses' => 'StudentController@login',
-    'as' => 'login'
+    'as' => 'student_login'
 ]);
+
+//------------------------------------------------//
+
+
+//----------------Supervisor---------------------//
+
+Route::get('supervisor/{id}',[
+    'uses' => 'SupervisorController@show',
+    'as' => 'supervisor'
+]);
+
+Route::get('supervisor_login', ['uses' => function () {
+    return view('logins/supervisor_login');},
+    'as'=>'supervisor_login_form']);
+
+Route::post('/login_sup', [
+    'uses' => 'SupervisorController@login',
+    'as' => 'supervisor_login'
+]);
+
+//------------------------------------------------//
 
 Route::get('/home', 'HomeController@index');
 

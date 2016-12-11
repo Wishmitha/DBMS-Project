@@ -6,8 +6,8 @@
         <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
             <div class="login-card">
                 <h2 class="text-center"><strong>EXACUTOR</strong> </h2>
-                <h4 class="text-center">Student - Login</h4>
-                <form class="form-signin" method="post" action="{{ route('student_login') }}">
+                <h4 class="text-center">Supervisor - Login</h4>
+                <form class="form-signin" method="post" action="{{ route('supervisor_login') }}">
                     <input class="form-control" type="text" required="" placeholder="Username" autofocus="" id="inputEmail" name="username">
                     <input class="form-control" type="password" required="" placeholder="Password" id="inputPassword" name="password">
                     <div class="checkbox">
@@ -21,5 +21,6 @@
                 </form><a href="#" class="forgot-password">Forgot your password?</a></div>
         </div>
     </div>
+
 
 @endsection

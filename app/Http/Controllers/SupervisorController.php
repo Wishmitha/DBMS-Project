@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\DAO\SupervisorDAO;
+use App\Student;
+use App\DAO\StudentDAO;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\HttpFoundation\Request;
 
 class SupervisorController extends Controller {
 
@@ -87,6 +93,36 @@ class SupervisorController extends Controller {
   {
     
   }
+
+    public function login(Request $request){
+
+        $username = $request->input()['username'];
+        $password = $request->input()['password'];
+
+        $supervisorDAO = new SupervisorDAO();
+        //return $supervisorDAO->getID($username);
+
+        $supID = $supervisorDAO->getID($username);
+
+        if($supID!=null) {
+            
+            $supervisor = $supervisorDAO->create($supID);
+
+            if ($supervisor != null) {
+
+                if ($supervisor->getlogin()->getPassword() == $password) {
+                    return Redirect::to(Route('supervisor', [$supID]));
+                    //return 'True';
+                } else {
+                    return Redirect::to(Route('supervisor_login_form'));
+                }
+            } else {
+                return Redirect::to(Route('supervisor_login_form'));
+            }
+        }else{
+            return Redirect::to(Route('supervisor_login_form'));
+        }
+    }
   
 }
 

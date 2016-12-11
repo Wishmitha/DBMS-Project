@@ -32,7 +32,7 @@ class SupervisorDAO
             $supervisor->setActivities($this->getActivities($supervisor->getID()));
 
             // set login
-            //$student->setLogin($this->getLogin($student->getID()));
+            $supervisor->setLogin($this->getLogin($supervisor->getID()));
 
             return $supervisor;
 
@@ -123,7 +123,24 @@ class SupervisorDAO
         return $activities;
     }
 
+    public function getLogin($sup_id){
 
+        $querySupervisorLogin = DB::select("SELECT * FROM supervisor_login WHERE sup_id=?",[$sup_id]);
+
+        return $querySupervisorLogin;
+
+    }
+
+    public  function  getID($username){
+        $querySupID = DB::select("SELECT sup_id FROM supervisor_login WHERE username=?",[$username]);
+
+        if(count($querySupID)!=0) {
+            return $querySupID[0]->sup_id;
+        }else{
+            return null;
+        }
+
+    }
 
 
 
@@ -235,11 +252,4 @@ class SupervisorDAO
         return $activities;
     }
 
-    public function getLogin($stu_id){
-
-        $queryStudentLogin = DB::select("SELECT * FROM student_login WHERE stu_id=?",[$stu_id]);
-
-        return $queryStudentLogin;
-
-    }
 }

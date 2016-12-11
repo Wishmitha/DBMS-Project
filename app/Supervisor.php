@@ -67,7 +67,14 @@ class Supervisor extends Model {
 
     public function setLogin($loginDat)
     {
+        $login = new Supervisor_login();
 
+        $login->setUsername($loginDat[0]->username);
+        $login->setPassword($loginDat[0]->password);
+        $login->setCreateDate($loginDat[0]->created_at);
+        $login->setUpdateDate($loginDat[0]->updated_at);
+
+        $this->login=$login;
 
     }
 
