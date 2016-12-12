@@ -96,7 +96,7 @@ class StudentDAO
                 $queryActivityClass = DB::select("SELECT * FROM competitions WHERE competition_id=?",[$queryActivities[0]->comp_id]);
 
                 array_push($activityClass,
-                    $queryActivityClass[0]->competetiopn_name,
+                    $queryActivityClass[0]->competitiopn_name,
                     $queryActivityClass[0]->logo,
                     $queryActivityClass[0]->host,
                     $queryActivityClass[0]->description);

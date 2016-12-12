@@ -12,40 +12,65 @@ INSERT INTO `exacutor`.`students`(`student_id`,`first_name`,`last_name`,`batch_i
 clubs
 ======
 
-INSERT INTO `exacutor`.`clubs`(`club_name`,`logo`,`division`,`created_at`,`updated_at`,`deleted_at`) VALUES('Rotaract',null,'University of Moratuwa','2016/11/30','2016/11/30',null);
+INSERT INTO `exacutor`.`clubs`(`club_name`,`logo`,`division`,`created_at`,`updated_at`,`deleted_at`) VALUES('Rotaract','https://www.seeklogo.net/wp-content/uploads/2013/05/rotaract-club-eps-vector-logo.png','University of Moratuwa','2016/11/30','2016/11/30',null);
 
-INSERT INTO `exacutor`.`clubs`(`club_name`,`logo`,`division`,`created_at`,`updated_at`,`deleted_at`) VALUES('AISEC',null,'Colombo South','2016/12/01','2016/12/01',null);
+INSERT INTO `exacutor`.`clubs`(`club_name`,`logo`,`division`,`created_at`,`updated_at`,`deleted_at`) VALUES('AISEC','http://aiesec.gr/wp-content/uploads/2015/08/AIESEC-Logo-Square_A-White-on-Blue.png','Colombo South','2016/12/01','2016/12/01',null);
 
+=======
+sports
+=======
+
+INSERT INTO `exacutor`.`sports`(`sport_name`,`logo`,`team`,`description`,`created_at`,`updated_at`)VALUES('Cricket','https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/16807_10154809697690005_2893730701933941583_n.jpg?oh=ee8549938d3c72423dd1680ce029a207&oe=58F9A942','University of Moratuwa',null,'2016/12/13','2016/12/13');
+
+=============
+competitions
+=============
+
+INSERT INTO `exacutor`.`competitions`(`competitiopn_name`,`logo`,`host`,`description`,`created_at`,`updated_at`)VALUES('GSOC','https://developers.google.com/open-source/gsoc/images/gsoc2016-sun-373x373.png','Google',null,'2016/12/13','2016/12/13');
 
 ============================
 extra curricular activities
 ============================
 
-INSERT INTO `exacutor`.`extra_curricular_activities`(`type`,`sp_id`,`comp_id`,`clb_id`,`defined_effort`,`created_at`,`updated_at`,`deleted_at`) VALUES('Club',null,null,1,10,'2016/11/30','2016/11/30',null);
+INSERT INTO `exacutor`.`extra_curricular_activities`(`type`,`sp_id`,`comp_id`,`clb_id`,`defined_effort`,`created_at`,`updated_at`) VALUES('Club',null,null,1,10,'2016/11/30','2016/11/30');
 
-INSERT INTO `exacutor`.`extra_curricular_activities`(`type`,`sp_id`,`comp_id`,`clb_id`,`defined_effort`,`created_at`,`updated_at`,`deleted_at`) VALUES('Club',null,null,2,10,'2016/12/01','2016/12/01',null);
+INSERT INTO `exacutor`.`extra_curricular_activities`(`type`,`sp_id`,`comp_id`,`clb_id`,`defined_effort`,`created_at`,`updated_at`) VALUES('Club',null,null,2,10,'2016/12/01','2016/12/01');
+
+INSERT INTO `exacutor`.`extra_curricular_activities`(`type`,`sp_id`,`comp_id`,`clb_id`,`defined_effort`,`created_at`,`updated_at`) VALUES('Sport',1,null,null,20,'2016/12/13','2016/12/13');
+
+INSERT INTO `exacutor`.`extra_curricular_activities`(`type`,`sp_id`,`comp_id`,`clb_id`,`defined_effort`,`created_at`,`updated_at`) VALUES('Competetion',null,1,null,30,'2016/12/13','2016/12/13');
+
+
 
 =================
 student_activity
 =================
 
-INSERT INTO `exacutor`.`student_activity`(`stu_id`,`act_id`,`role`,`effort`,`joined`,`is_validated`,`created_at`,`updated_at`,`deleted_at`) VALUES (140253,1,'Web Developer',12,'2015/03/30',0,'2016/12/01','2016/12/01',null);
+INSERT INTO `exacutor`.`student_activity`(`stu_id`,`act_id`,`role`,`effort`,`joined`,`is_validated`,`created_at`,`updated_at`) VALUES (140253,1,'Web Developer',12,'2015/03/30',0,'2016/12/01','2016/12/01');
 
-INSERT INTO `exacutor`.`student_activity`(`stu_id`,`act_id`,`role`,`effort`,`joined`,`is_validated`,`created_at`,`updated_at`,`deleted_at`) VALUES (140392,1,'Member',5,'2016/05/30',0,'2016/12/01','2016/12/01',null);
+INSERT INTO `exacutor`.`student_activity`(`stu_id`,`act_id`,`role`,`effort`,`joined`,`is_validated`,`created_at`,`updated_at`) VALUES (140253,4,'Participant',25,'2016/03/25',1,'2016/12/13','2016/12/13');
 
-INSERT INTO `exacutor`.`student_activity`(`stu_id`,`act_id`,`role`,`effort`,`joined`,`is_validated`,`created_at`,`updated_at`,`deleted_at`) VALUES (140392,2,'Panelist',12,'2015/03/30',0,'2016/12/01','2016/12/01',null);
+INSERT INTO `exacutor`.`student_activity`(`stu_id`,`act_id`,`role`,`effort`,`joined`,`is_validated`,`created_at`,`updated_at`) VALUES (140392,1,'Member',5,'2016/05/30',0,'2016/12/01','2016/12/01');
 
-INSERT INTO `exacutor`.`student_activity`(`stu_id`,`act_id`,`role`,`effort`,`joined`,`is_validated`,`created_at`,`updated_at`,`deleted_at`) VALUES (140331,2,'Member',7,'2015/10/30',1,'2016/12/01','2016/12/01',null);d
+INSERT INTO `exacutor`.`student_activity`(`stu_id`,`act_id`,`role`,`effort`,`joined`,`is_validated`,`created_at`,`updated_at`) VALUES (140392,2,'Panelist',12,'2015/03/30',0,'2016/12/01','2016/12/01');
+
+INSERT INTO `exacutor`.`student_activity`(`stu_id`,`act_id`,`role`,`effort`,`joined`,`is_validated`,`created_at`,`updated_at`) VALUES (140331,2,'Member',7,'2015/10/30',1,'2016/12/01','2016/12/01');
+
+INSERT INTO `exacutor`.`student_activity`(`stu_id`,`act_id`,`role`,`effort`,`joined`,`is_validated`,`created_at`,`updated_at`) VALUES (140331,3,'Member',15,'2014/12/22',0,'2016/12/13','2016/12/13');
+
+
 
 =============
 achievements 
 =============
 
-INSERT INTO `exacutor`.`achievements`(`act_id`,`stu_id`,`position`,`description`,`created_at`,`updated_at`,`deleted_at`) VALUES (1,140392,'Winner','Best Rotoracter of the Year','2016/12/01','2016/12/01',null);
+INSERT INTO `exacutor`.`achievements`(`act_id`,`stu_id`,`position`,`description`,`created_at`,`updated_at`) VALUES (1,140392,'Winner','Best Rotoracter of the Year','2016/12/01','2016/12/01');
 
-INSERT INTO `exacutor`.`achievements`(`act_id`,`stu_id`,`position`,`description`,`created_at`,`updated_at`,`deleted_at`) VALUES (2,140392,'Runners_Up','Most outstanding panelist','2016/12/01','2016/12/01',null);
+INSERT INTO `exacutor`.`achievements`(`act_id`,`stu_id`,`position`,`description`,`created_at`,`updated_at`) VALUES (2,140392,'Runners_Up','Most outstanding panelist','2016/12/01','2016/12/01');
 
-INSERT INTO `exacutor`.`achievements`(`act_id`,`stu_id`,`position`,`description`,`created_at`,`updated_at`,`deleted_at`) VALUES (2,140392,'third_place','Most outstanding project','2016/12/01','2016/12/01',null);
+INSERT INTO `exacutor`.`achievements`(`act_id`,`stu_id`,`position`,`description`,`created_at`,`updated_at`) VALUES (2,140392,'third_place','Most outstanding project','2016/12/01','2016/12/01');
+
+INSERT INTO `exacutor`.`achievements`(`act_id`,`stu_id`,`position`,`description`,`created_at`,`updated_at`) VALUES (2,140392,'third_place','Most outstanding project','2016/12/01','2016/12/01');
 
 ==============
 student_login
