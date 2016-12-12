@@ -78,12 +78,12 @@ Route::post('/login_sup', [
 //--------------View Developmement---------------//
 
 /*Route::get('test', function () {
-    return view('student/main');
+    return view('supervisor/main');
 });
 
-Route::get('student/{id}',[
-    'uses' => 'StudentController@show',
-    'as' => 'student'
+Route::get('supervisor/{id}',[
+    'uses' => 'SupervisorController@show',
+    'as' => 'supervisor'
 ]);*/
 
 //-----------------------------------------------//

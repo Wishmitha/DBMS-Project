@@ -15,7 +15,7 @@
                 <li class><a>{{'\''.$student->getBatchID().' Batch'}}</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class><a>Add Activity</a></li>
+                <li class><a href='#'>Add Activity</a></li>
                 <li class><a href='/student_login'>Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
