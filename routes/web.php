@@ -75,16 +75,16 @@ Route::post('/login_sup', [
 
 //------------------------------------------------//
 
-//--------------View Developmement---------------//
+//------------------Developmement----------------//
 
-/*Route::get('test', function () {
+Route::get('test', function () {
     return view('supervisor/main');
 });
 
-Route::get('supervisor/{id}',[
-    'uses' => 'SupervisorController@show',
-    'as' => 'supervisor'
-]);*/
+Route::get('admin/{id}',[
+    'uses' => 'AdminController@show',
+    'as' => 'admin'
+]);
 
 //-----------------------------------------------//
 

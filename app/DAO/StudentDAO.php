@@ -39,7 +39,9 @@ class StudentDAO
             $student->setLogin($this->getLogin($student->getID()));
 
             return $student;
+
         }else{
+
             return null;
         }
 

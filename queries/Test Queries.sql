@@ -113,5 +113,11 @@ INSERT INTO `test`.`supervisor_login`(`sup_id`,`username`,`password`,`created_at
 
 INSERT INTO `test`.`supervisor_login`(`sup_id`,`username`,`password`,`created_at`,`updated_at`) VALUES (3,'Holland','wolfpack123','2016/12/11','2016/12/11');
 
+======
+admins
+======
+
+INSERT INTO `test`.`admins`(`first_name`,`last_name`,`created_at`,`updated_at`)VALUES('David','Villa','2016/12/13','2016/12/11');
+
 
 

@@ -26,7 +26,13 @@ class Extra_curricular_activity extends Model {
     private $sp_id;
     private $comp_id;
     private $clb_id;
+    private $activity; // what is the club or team
+    private $logo;
+    private $division;
+    private $description;
     private $defined_effort;
+
+    // combination of extra curricular activities table and its sub catogeeries
 
     //other attributes
 
@@ -58,6 +64,26 @@ class Extra_curricular_activity extends Model {
         $this->clb_id = $clb_id;
     }
 
+    public function setActivity($activity)
+    {
+        $this->activity=$activity;
+    }
+
+    public function setLogo($logo)
+    {
+        $this->logo=$logo;
+    }
+
+    public function setDivision($division)
+    {
+        $this->division=$division;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description=$description;
+    }
+
     public function setDefinedEffort($defined_effort)
     {
         $this->defined_effort = $defined_effort;
@@ -85,6 +111,26 @@ class Extra_curricular_activity extends Model {
     public function getClubID()
     {
         return $this->clb_id;
+    }
+
+    public function getActivity()
+    {
+        return $this->activity;
+    }
+
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    public function getDivision()
+    {
+        return $this->division;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
     }
 
     public function getDefinedEffort()
