@@ -15,6 +15,7 @@ class CreateStudentActivityTable extends Migration {
 			$table->integer('effort');
 			$table->date('joined');
 			$table->boolean('is_validated');
+            $table->text('description')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

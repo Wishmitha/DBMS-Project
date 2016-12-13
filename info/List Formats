@@ -24,6 +24,33 @@ Inner Activity Array Format
 [1] -> description (what did you win?)
 [2] -> date
 
+1) Student Activity Array (Modified)
+====================================
+
+A 2D array : Each array contains information about a activity
+
+Inner Activity Array Format
+---------------------------
+
+[0] -> role
+[1] -> actual effort
+[2] -> defined effort
+[3] -> joined_date
+[4] -> is_verified
+[5] -> description (student)
+[6] -> club/sport/competition
+[7] -> logo
+[8] -> division/team/host 
+[9] -> description (activity)
+[10] -> achievements
+
+[10]-> Achievements Array Format
+-------------------------------
+
+[0] -> position
+[1] -> description (what did you win?)
+[2] -> date
+
 
 2) Supervisor Activity Array
 ============================

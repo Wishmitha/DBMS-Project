@@ -2,11 +2,11 @@
 students
 =========
 
-INSERT INTO `exacutor`.`students`(`student_id`,`first_name`,`last_name`,`batch_id`,`created_at`,`updated_at`,`deleted_at`) VALUES ('140253','Adeesha','Jaysooriya',14,'2016/11/30','2016/11/30',null);
+INSERT INTO `exacutor`.`students`(`student_id`,`first_name`,`last_name`,`batch_id`,`created_at`,`updated_at`) VALUES (140253,'Adeesha','Jaysooriya',14,'2016/11/30','2016/11/30');
 
-INSERT INTO `exacutor`.`students`(`student_id`,`first_name`,`last_name`,`batch_id`,`created_at`,`updated_at`,`deleted_at`) VALUES (140392,'Wishmitha','Mendis',14,'2016/11/30','2016/11/30',null);
+INSERT INTO `exacutor`.`students`(`student_id`,`first_name`,`last_name`,`batch_id`,`created_at`,`updated_at`) VALUES (140392,'Wishmitha','Mendis',14,'2016/11/30','2016/11/30');
 
-INSERT INTO `exacutor`.`students`(`student_id`,`first_name`,`last_name`,`batch_id`,`created_at`,`updated_at`,`deleted_at`) VALUES (140331,'Kusal','Hettiarachchi',14,'2016/12/01','2016/12/01',null);
+INSERT INTO `exacutor`.`students`(`student_id`,`first_name`,`last_name`,`batch_id`,`created_at`,`updated_at`) VALUES (140331,'Kusal','Hettiarachchi',14,'2016/12/01','2016/12/01');
 
 ======
 clubs

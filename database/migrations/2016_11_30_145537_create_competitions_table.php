@@ -9,7 +9,7 @@ class CreateCompetitionsTable extends Migration {
 	{
 		Schema::create('competitions', function(Blueprint $table) {
 			$table->increments('competition_id');
-			$table->string('competitiopn_name', 50);
+			$table->string('competition_name', 50);
 			$table->binary('logo')->nullable();;
 			$table->string('host', 60);
 			$table->text('description')->nullable();

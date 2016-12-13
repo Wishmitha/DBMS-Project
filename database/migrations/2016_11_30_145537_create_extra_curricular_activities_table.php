@@ -9,7 +9,7 @@ class CreateExtraCurricularActivitiesTable extends Migration {
 	{
 		Schema::create('extra_curricular_activities', function(Blueprint $table) {
 			$table->increments('activity_id');
-			$table->enum('type', array('Sport', 'Club', 'Competetion'));
+			$table->enum('type', array('Sport', 'Club', 'Competition'));
 			$table->integer('sp_id')->unsigned()->nullable();
 			$table->integer('comp_id')->unsigned()->nullable();
 			$table->integer('clb_id')->unsigned()->nullable();

@@ -23,6 +23,7 @@ class Student_activity extends Model {
     private $defined_effort;
     private $joined_date;
     private $is_verified;
+    private $student_description;
     private $activity;
     private $logo;
     private $div;
@@ -55,6 +56,11 @@ class Student_activity extends Model {
     public function setVerification($is_verified)
     {
         $this->is_verified=$is_verified;
+    }
+
+    public function setStudentDescription($description)
+    {
+        $this->student_description=$description;
     }
 
     public function setActivity($activity)
@@ -115,6 +121,11 @@ class Student_activity extends Model {
     public function getVerification()
     {
         return $this->is_verified;
+    }
+
+    public function getStudentDescription()
+    {
+        return $this->student_description;
     }
 
     public function getActivity()

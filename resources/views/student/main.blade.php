@@ -63,7 +63,7 @@
                             <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5">
                                 <h5 class="text-right">{{$activity->getJoinedDate()}} </h5></div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-6 col-xs-3"><span> </span></div>
                             <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
@@ -73,7 +73,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <p>{{$activity->getDescription()}}</p>
+                                <p>{{$activity->getStudentDescription()}}</p>
                             </div>
                         </div>
                     </div>

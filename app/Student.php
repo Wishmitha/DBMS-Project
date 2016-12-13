@@ -66,11 +66,12 @@ class Student extends Model{
             $activity->setDefinedEffort($activities[$i][2]);
             $activity->setJoinedDate($activities[$i][3]);
             $activity->setVerification($activities[$i][4]);
-            $activity->setActivity($activities[$i][5]);
-            $activity->setLogo($activities[$i][6]);
-            $activity->setDiv($activities[$i][7]);
-            $activity->setDescription($activities[$i][8]);
-            $activity->setAchievements($activities[$i][9]);
+            $activity->setStudentDescription($activities[$i][5]);
+            $activity->setActivity($activities[$i][6]);
+            $activity->setLogo($activities[$i][7]);
+            $activity->setDiv($activities[$i][8]);
+            $activity->setDescription($activities[$i][9]);
+            $activity->setAchievements($activities[$i][10]);
 
             array_push($this->activities,$activity);
         }

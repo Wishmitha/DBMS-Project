@@ -11,7 +11,8 @@ class CreateAchievementsTable extends Migration {
 			$table->increments('ach_id');
 			$table->integer('act_id')->unsigned(); //foreign keys are updated in foreign key migration file
 			$table->integer('stu_id')->unsigned();
-			$table->enum('position', array('winner', 'runners_up', 'third_place', 'participation'));
+            $table->date('date');
+			$table->string('position',50);
 			$table->text('description');
 			$table->timestamps();
 			$table->softDeletes();

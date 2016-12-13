@@ -197,7 +197,7 @@ class SupervisorDAO
                 array_push($achievements,
                     [$queryAchievements[$j]->position,
                         $queryAchievements[$j]->description,
-                        $queryAchievements[$j]->created_at]);
+                        $queryAchievements[$j]->date]);
             }
 
 
@@ -238,7 +238,8 @@ class SupervisorDAO
                     $queryStudentActivities[$i]->effort,
                     $queryActivities[0]->defined_effort,
                     $queryStudentActivities[$i]->joined,
-                    $queryStudentActivities[$i]->is_validated]);
+                    $queryStudentActivities[$i]->is_validated,
+                    $queryStudentActivities[$i]->description]);
 
             array_push($activity,$activityClass);
             $activity=array_flatten($activity);
