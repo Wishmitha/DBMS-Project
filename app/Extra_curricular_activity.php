@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\DAO\SupervisorDAO;
 use Illuminate\Database\Eloquent\Model;
 
 //use Illuminate\Database\Eloquent\SoftDeletes;
@@ -37,7 +38,7 @@ class Extra_curricular_activity extends Model {
     //other attributes
 
     private $students; // students doing this activity
-    private $supervisors; // supervisors related to the activity
+    private $supervisors=[]; // supervisors related to the activity
     private $achivements; // achievemnts of this activity
 
     // set attributes
@@ -89,6 +90,20 @@ class Extra_curricular_activity extends Model {
         $this->defined_effort = $defined_effort;
     }
 
+    public function setSupervisors($supervisorIDS)
+    {
+        if(count($supervisorIDS)>0) {
+            for ($i = 0; $i < count($supervisorIDS); $i++) {
+                $supervisorDAO = new SupervisorDAO();
+                $supervisor = $supervisorDAO->create($supervisorIDS[$i]->sup_id);
+
+                array_push($this->supervisors, $supervisor);
+            }
+        }else{
+            $this->supervisors=[];
+        }
+    }
+
     // get attributes
 
     public function getID(){
@@ -138,8 +153,13 @@ class Extra_curricular_activity extends Model {
         return $this->defined_effort;
     }
 
+    public function getSupervisors()
+    {
+        return $this->supervisors;
+    }
+
     // other models
-	public function getStudent()
+	/*public function getStudent()
 	{
 		return $this->hasMany('Student_activity');
 	}
@@ -167,6 +187,6 @@ class Extra_curricular_activity extends Model {
 	public function getAchievement()
 	{
 		return $this->hasMany('Achievements');
-	}
+	}*/
 
 }
