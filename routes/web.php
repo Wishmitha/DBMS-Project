@@ -75,16 +75,35 @@ Route::post('/login_sup', [
 
 //------------------------------------------------//
 
+//----------------------Admin--------------------//
+
+Route::get('admin/{id}',[
+    'uses' => 'AdminController@show',
+    'as' => 'admin'
+]);
+
+Route::get('admin_login', ['uses' => function () {
+    return view('logins/admin_login');},
+    'as'=>'admin_login_form']);
+
+
+Route::post('/login_admin', [
+    'uses' => 'AdminController@login',
+    'as' => 'admin_login'
+]);
+
+//------------------------------------------------//
+
 //------------------Developmement----------------//
 
 Route::get('test', function () {
     return view('supervisor/main');
 });
 
-Route::get('admin/{id}',[
+/*Route::get('admin/{id}',[
     'uses' => 'AdminController@show',
     'as' => 'admin'
-]);
+]);*/
 
 //-----------------------------------------------//
 

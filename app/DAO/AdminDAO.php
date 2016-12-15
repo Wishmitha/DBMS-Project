@@ -30,7 +30,9 @@ class AdminDAO
 
         $admin->setActivities($this->getAllActivities());
 
-        return var_dump($admin->getStudents()[0]->getName());
+        $admin->setLogin($this->getLogin($admin->getID()));
+
+        return $admin;
     }
 
     public function getAllStudents(){
@@ -47,32 +49,6 @@ class AdminDAO
     }
 
     public function getAllActivities(){
-
-        /*$allSports=[];
-
-        $querySports = DB::select("SELECT * FROM sports WHERE TRUE");
-        $sportIDS=[];
-
-        for($i=0;$i<count($querySports);$i++){
-            array_push($sportIDS,$querySports[$i]->sport_id);
-        }
-
-        array_push($allSports,$sportIDS);
-
-        $sportsActIDS=[];
-
-        for($j=0;$j<count($sportIDS);$j++){
-            $querySportsActID = DB::select("SELECT activity_id FROM extra_curricular_activities WHERE sp_id = ?",[$sportIDS[$j]]);
-            array_push($sportsActIDS,$querySportsActID[0]->activity_id);
-        }
-
-        array_push($allSports,$sportsActIDS);
-
-        for($k=0;$k<count($sportsActIDS);$k++){
-            $querySportsActID = DB::select("SELECT activity_id FROM extra_curricular_activities WHERE sp_id = ?",[$sportIDS[$j]]);
-            array_push($sportsActIDS,$querySportsActID[0]->activity_id);
-        }*/
-
 
         $queryActivities = DB::select("SELECT * FROM extra_curricular_activities WHERE TRUE");
 
@@ -154,5 +130,24 @@ class AdminDAO
         array_push($allActivities,$allSports,$allClubs,$allCompetitions);
 
         return $allActivities;
+    }
+
+    public  function  getID($username){
+        $queryAdminID = DB::select("SELECT admin_id FROM admin_login WHERE username=?",[$username]);
+
+        if(count($queryAdminID)!=0) {
+            return $queryAdminID[0]->admin_id;
+        }else{
+            return null;
+        }
+
+    }
+
+    public function getLogin($admin_id){
+
+        $querySupervisorLogin = DB::select("SELECT * FROM admin_login WHERE admin_id=?",[$admin_id]);
+
+        return $querySupervisorLogin;
+
     }
 }

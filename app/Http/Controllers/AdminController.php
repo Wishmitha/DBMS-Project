@@ -55,7 +55,7 @@ class AdminController extends Controller {
         $adminDAO = new AdminDAO();
         $admin = $adminDAO->create($id);
 
-        return $admin;
+        return var_dump($admin);
     }
 
     /**
@@ -96,28 +96,29 @@ class AdminController extends Controller {
         $username = $request->input()['username'];
         $password = $request->input()['password'];
 
-        $supervisorDAO = new SupervisorDAO();
+        $adminDAO = new AdminDAO();
         //return $supervisorDAO->getID($username);
 
-        $supID = $supervisorDAO->getID($username);
+        $adminID = $adminDAO->getID($username);
 
-        if($supID!=null) {
+        if($adminID!=null) {
 
-            $supervisor = $supervisorDAO->create($supID);
+            $admin = $adminDAO->create($adminID);
 
-            if ($supervisor != null) {
 
-                if ($supervisor->getlogin()->getPassword() == $password) {
-                    return Redirect::to(Route('supervisor', [$supID]));
+            if ($admin != null) {
+
+                if ($admin->getlogin()->getPassword() == $password) {
+                    return Redirect::to(Route('admin', [$adminID]));
                     //return 'True';
                 } else {
-                    return Redirect::to(Route('supervisor_login_form'));
+                    return Redirect::to(Route('admin_login_form'));
                 }
             } else {
-                return Redirect::to(Route('supervisor_login_form'));
+                return Redirect::to(Route('admin_login_form'));
             }
         }else{
-            return Redirect::to(Route('supervisor_login_form'));
+            return Redirect::to(Route('admin_login_form'));
         }
     }
 

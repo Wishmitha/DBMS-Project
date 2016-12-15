@@ -119,5 +119,13 @@ admins
 
 INSERT INTO `exacutor`.`admins`(`first_name`,`last_name`,`created_at`,`updated_at`)VALUES('David','Villa','2016/12/13','2016/12/11');
 
+INSERT INTO `exacutor`.`admins`(`first_name`,`last_name`,`created_at`,`updated_at`)VALUES('Tony','Stark','2016/12/15','2016/12/15');
 
+============
+admin login
+============
+
+INSERT INTO `exacutor`.`admin_login`(`admin_id`,`username`,`password`,`created_at`,`updated_at`)VALUES(1,'David','wolfpack123','2016/12/14','2016/12/14');
+
+INSERT INTO `exacutor`.`admin_login`(`admin_id`,`username`,`password`,`created_at`,`updated_at`)VALUES(2,'Tony','wolfpack123','2016/12/14','2016/12/14');
 
