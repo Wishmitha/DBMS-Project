@@ -55,7 +55,9 @@ class AdminController extends Controller {
         $adminDAO = new AdminDAO();
         $admin = $adminDAO->create($id);
 
-        return var_dump($admin);
+        return view('admin/main')->with(['admin' => $admin]);
+
+        //return var_dump($admin->getActivities());
     }
 
     /**
