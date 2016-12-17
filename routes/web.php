@@ -38,6 +38,11 @@ Route::get('/', function () {
 
 // confirmed routes
 
+//----------------------Home------------------------//
+
+Route::get('home', function () {
+    return view('home.home');
+});
 
 //--------------------Student----------------------//
 Route::get('student/{id}',[
@@ -107,7 +112,7 @@ Route::get('test', function () {
 
 //-----------------------------------------------//
 
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
 
 /*Route::get('achievement/{id}', 'AchievementsController@show');
 Route::get('activity/{id}', 'Extra_curricular_activityController@show');*/

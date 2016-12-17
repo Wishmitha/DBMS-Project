@@ -7,22 +7,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/home">EXACUTOR</a>
+            <a class="navbar-brand" href="#">EXACUTOR</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class><a>{{$supervisor->getName()}}</a></li>
 
-                @foreach($supervisor -> getActivities() as $activity)
-                    <li class><a>
-                            {{$activity->getActivity()}}
-                        </a></li>
-                @endforeach
-            </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class><a href="javascript:void(0)" onclick="switchTab1()">Show Activities</a></li></li>
-                <li class><a href="javascript:void(0)" onclick="switchTab2()">Edit Activities</a></li></li>
-                <li class><a href='/supervisor_login'>Logout</a></li>
+                <li class><a href="/student_login">Student Login</a></li></li>
+                <li class><a href="/supervisor_login">Supervisor Login</a></li></li>
+                <li class><a href="admin_login">Admin Login</a></li></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
