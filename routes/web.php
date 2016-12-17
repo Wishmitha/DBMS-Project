@@ -97,6 +97,27 @@ Route::post('/login_admin', [
     'as' => 'admin_login'
 ]);
 
+Route::post('/assign_sup', [
+    'uses' => 'AdminViewController@assignSupervisor',
+    'as' => 'assign_supervisor'
+]);
+
+Route::post('/delete_stu', [
+    'uses' => 'AdminViewController@deleteStudent',
+    'as' => 'delete_student'
+]);
+
+Route::post('/delete_sup_act', [
+    'uses' => 'AdminViewController@deleteSupervisorActivity',
+    'as' => 'delete_supervisor_activity'
+]);
+
+Route::post('/add_act', [
+    'uses' => 'AdminViewController@addActivity',
+    'as' => 'add_activity'
+]);
+
+
 //------------------------------------------------//
 
 //------------------Developmement----------------//

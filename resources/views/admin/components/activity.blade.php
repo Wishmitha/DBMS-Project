@@ -33,15 +33,28 @@
 
                     @foreach($activity->getSupervisors() as $supervisor)
 
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-8">
-                                    <h4>{{$supervisor->getName()}}</h4></div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                    <button class="btn btn-default" type="button">Delete </button>
+                        <form  method="post" action="{{ route('delete_supervisor_activity') }}">
+
+                            <input name="supervisorID" type="hidden" value={{$supervisor->getID()}} >
+
+                            <input name="adminID" type="hidden" value={{$admin->getID()}} >
+
+                            <input name="activityID" type="hidden" value={{$activity->getID()}} >
+
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-8">
+                                        <h4>{{$supervisor->getName()}}</h4></div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+
+                                        {{ csrf_field() }}
+
+                                        <button class="btn btn-default" type="submit">Delete </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+
+                        </form>
 
                     @endforeach
 
