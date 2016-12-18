@@ -30,9 +30,6 @@
         <div class="row"><br></div>
         <div class="row"><br></div>
         <div class="row"><br></div>
-        <div class="row"><br></div>
-        <div class="row"><br></div>
-        <div class="row"><br></div>
         <h5 align="center">Created by Vortex</h5>
     </footer>
 

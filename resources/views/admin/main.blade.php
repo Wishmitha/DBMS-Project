@@ -41,77 +41,153 @@
     </div>
 
     <div id="addActivity" style="display: none;">
-        <div class="row register-form">
-            <div class="col-md-8 col-md-offset-2">
 
-                <form class="form-horizontal custom-form" method="post" action="{{ route('add_activity') }}">
-                    <h1>Add Activity</h1>
-                    <div class="form-group">
+        @include('admin.components.addActivity')
 
-                        <input name="adminID" type="hidden" value={{$admin->getID()}} >
-
-                        <div class="col-sm-4 label-column">
-                            <label class="control-label" for="name-input-field">Type </label>
-                        </div>
-                        <div class="col-sm-6 input-column">
-                            <select class="form-control" id="type" onchange="updateForm()" name="type">
-                                <option value="Sport" selected="">Sport</option>
-                                <option value="Club">Club</option>
-                                <option value="Comp">Competition</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-4 label-column">
-                            <label class="control-label" for="email-input-field" id="activity">Sport Name</label>
-                        </div>
-                        <div class="col-sm-6 input-column">
-                            <input class="form-control" type="text" name="activity">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-4 label-column">
-                            <label class="control-label" for="pawssword-input-field">Logo URL</label>
-                        </div>
-                        <div class="col-sm-6 input-column">
-                            <input class="form-control" type="url" name="logo">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-4 label-column">
-                            <label class="control-label" for="email-input-field" id="division">Team</label>
-                        </div>
-                        <div class="col-sm-6 input-column">
-                            <input class="form-control" type="text" name="division">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-4 label-column">
-                            <label class="control-label" for="email-input-field">Required Effort <em>(Hours per Week)</em></label>
-                        </div>
-                        <div class="col-sm-6 input-column">
-                            <input class="form-control" type="number" name="effort">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-4 label-column">
-                            <label class="control-label" for="email-input-field">Description </label>
-                        </div>
-                        <div class="col-sm-6 input-column">
-                            <textarea class="form-control" name="description"></textarea>
-                        </div>
-                    </div>
-
-                    {{ csrf_field() }}
-
-                    <button class="btn btn-default submit-button" type="submit">Add</button>
-                </form>
-            </div>
-        </div>
     </div>
 
     <div id="reports" style="display: none;">
-        reports
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand navbar-link" href="#"> </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav">
+
+                        <li class><a href="javascript:void(0)" onclick="switchToStudentReports()">Student</a></li></li>
+
+                        <li class><a href="javascript:void(0)" onclick="switchToActivityReports()">Activity</a></li></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div id="studentReports">
+
+            <div class="row register-form">
+                <div class="col-md-8 col-md-offset-2">
+                    <form class="form-horizontal custom-form" method="post" action="{{ route('student_report') }}">
+                        <h1>Student Report</h1>
+                        <div class="form-group">
+                            <div class="col-sm-4 label-column">
+                                <label class="control-label" for="name-input-field">Type </label>
+                            </div>
+                            <div class="col-sm-6 input-column">
+
+                                <select class="form-control" id="studentReportType" onchange="updateStudentForm()" name="type">
+                                    <option value="Ind" selected="">Individual</option>
+                                    <option value="Comp">Comparison</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 label-column">
+                                <label class="control-label" for="email-input-field">Student ID</label>
+                            </div>
+                            <div class="col-sm-6 input-column">
+                                <select class="form-control" name="studentID">
+
+                                    @foreach($admin->getStudents() as $student)
+
+                                        <option value={{$student->getID()}} >{{$student->getID()}}</option>
+
+                                    @endforeach
+
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="otherStudent" style="display: none;">
+                            <div class="col-sm-4 label-column">
+                                <label class="control-label" for="pawssword-input-field">Other Student ID</label>
+                            </div>
+                            <div class="col-sm-6 input-column">
+                                <select class="form-control" >
+
+                                    @foreach($admin->getStudents() as $student)
+
+                                        <option value={{$student->getID()}}>{{$student->getID()}}</option>
+
+                                    @endforeach
+
+                                </select>
+                            </div>
+                        </div>
+
+                        {{ csrf_field() }}
+
+                        <button class="btn btn-default submit-button" type="submit">Generate </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="activityReports" style="display: none;">
+
+            <div class="row register-form">
+                <div class="col-md-8 col-md-offset-2">
+                    <form class="form-horizontal custom-form">
+                        <h1>Activity Report</h1>
+                        <div class="form-group">
+                            <div class="col-sm-4 label-column">
+                                <label class="control-label" for="name-input-field">Type </label>
+                            </div>
+                            <div class="col-sm-6 input-column">
+
+                                <select class="form-control" id="activityReportType" onchange="updateActivityForm()">
+
+                                    <option value="Ind" selected="">Individual</option>
+                                    <option value="Comp">Comparison</option>
+                                    <option value="Count">Student Count</option>
+
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="firstActivity">
+                            <div class="col-sm-4 label-column">
+                                <label class="control-label" for="email-input-field">Activity Name</label>
+                            </div>
+                            <div class="col-sm-6 input-column">
+                                <select class="form-control">
+                                    <option value="1" selected="">Rotaract</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="otherActivity" style="display: none;">
+                            <div class="col-sm-4 label-column">
+                                <label class="control-label" for="pawssword-input-field">Other Acivity Name</label>
+                            </div>
+                            <div class="col-sm-6 input-column">
+                                <select class="form-control">
+                                    <option value="2" selected="">AISEC</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-default submit-button" type="button">Generate </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
 
@@ -174,6 +250,60 @@
                 document.getElementById("division").innerHTML = "Hosted by"
             }
         }
+
+        function switchToStudentReports() {
+            document.getElementById("studentReports").style.display = "block";
+            document.getElementById("activityReports").style.display = "none";
+        }
+
+        function switchToActivityReports() {
+            document.getElementById("studentReports").style.display = "none";
+            document.getElementById("activityReports").style.display = "block";
+        }
+
+        function switchStudentIndividual() {
+            document.getElementById("studentIndividual").style.display = "block";
+            document.getElementById("studentComparison").style.display = "none";
+        }
+
+        function switchStudentComparison() {
+            document.getElementById("studentIndividual").style.display = "none";
+            document.getElementById("studentComparison").style.display = "block";
+        }
+
+        function updateStudentForm() {
+
+            if(document.getElementById("studentReportType").value == "Ind") {
+
+                document.getElementById("otherStudent").style.display="none";
+
+            }else{
+
+                document.getElementById("otherStudent").style.display="block";
+
+            }
+
+        }
+
+        function updateActivityForm() {
+
+            if(document.getElementById("activityReportType").value == "Ind") {
+
+                document.getElementById("otherActivity").style.display="none";
+                document.getElementById("firstActivity").style.display="block";
+
+            }else if(document.getElementById("activityReportType").value == "Comp") {
+
+                document.getElementById("otherActivity").style.display="block";
+
+            }else{
+
+                document.getElementById("firstActivity").style.display="none";
+                document.getElementById("otherActivity").style.display="none";
+            }
+
+        }
+
 
     </script>
 

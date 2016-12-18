@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DAO\StudentDAO;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Request;
@@ -82,7 +83,47 @@ class AdminViewController
             DB::insert("INSERT INTO extra_curricular_activities (type,sp_id,defined_effort) VALUES ($actType,$sport_id,$effort)");
 
             return redirect('admin/'.$admin_id);
+
+        } elseif($type=="Club"){
+            DB::insert("INSERT INTO clubs (club_name,logo,division,description) VALUES ($activity,$logo,$division,$description)");
+
+            $club_id = DB::select("SELECT club_id FROM clubs WHERE club_name = ?",[$act])[0]->club_id;
+
+            DB::insert("INSERT INTO extra_curricular_activities (type,clb_id,defined_effort) VALUES ($actType,$club_id,$effort)");
+
+            return redirect('admin/'.$admin_id);
+
+        }else{
+
+            DB::insert("INSERT INTO competitions (competition_name,logo,host,description) VALUES ($activity,$logo,$division,$description)");
+
+            $comp_id = DB::select("SELECT competition_id FROM competitions WHERE competition_name = ?",[$act])[0]->competition_id;
+
+            DB::insert("INSERT INTO extra_curricular_activities (type,comp_id,defined_effort) VALUES ($actType,$comp_id,$effort)");
+
+            return redirect('admin/'.$admin_id);
+
         }
+
+    }
+
+    public function createStudentReport(Request$request){
+
+        $type = $request->input()['type'];
+        $student_id = intval($request->input()['studentID']);
+
+        if($type == "Ind"){
+
+            $studentDAO = new StudentDAO();
+            $student = $studentDAO->create($student_id);
+
+            //return var_dump($student);
+
+            return view('admin/reports/student_individual')->with(['student' => $student]);
+
+        }
+
+
 
     }
 

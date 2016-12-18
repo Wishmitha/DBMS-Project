@@ -117,6 +117,11 @@ Route::post('/add_act', [
     'as' => 'add_activity'
 ]);
 
+Route::post('/stu_rep', [
+    'uses' => 'AdminViewController@createStudentReport',
+    'as' => 'student_report'
+]);
+
 
 //------------------------------------------------//
 

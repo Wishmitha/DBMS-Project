@@ -1,6 +1,6 @@
-@include('student.components.navbar')
-
 @extends('layouts.layout')
+
+@include('student.components.navbar')
 
 @section('content')
 
