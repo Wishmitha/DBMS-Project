@@ -2,6 +2,12 @@
 
 @include('student.components.navbar')
 
+@section('style')
+
+    @include('styles.admin')
+
+@endsection
+
 @section('content')
 
     <div id="showActivities">

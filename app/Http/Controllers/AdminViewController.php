@@ -111,6 +111,7 @@ class AdminViewController
 
         $type = $request->input()['type'];
         $student_id = intval($request->input()['studentID']);
+        $other_student_id = intval($request->input()['otherStudentID']);
 
         if($type == "Ind"){
 
@@ -121,7 +122,16 @@ class AdminViewController
 
             return view('admin/reports/student_individual')->with(['student' => $student]);
 
+        }else{
+
+            $studentDAO = new StudentDAO();
+            $student = $studentDAO->create($student_id);
+            $otherStudent = $studentDAO->create($other_student_id);
+
+            return view('admin/reports/student_comparison')->with(['student' => $student, 'otherStudent' => $otherStudent]);
+
         }
+
 
 
 

@@ -46,45 +46,48 @@
                         <p>{{$activity->getStudentDescription()}}</p>
                     </div>
                 </div>
+
+                @if(count($activity->getAchievements())>0)
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><strong>Achivements</strong> </h3></div>
+                        <div class="panel-body">
+                            <ul class="list-group">
+
+                                @foreach($activity->getAchievements() as $achievement)
+
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                                <h5 class="text-left"><strong>{{$achievement->getPosition()}} </strong></h5></div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4 hidden-xs"><span> </span></div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                                <h5 class="text-right"><strong>{{$achievement->getDate()}} </strong></h5></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12"><span> </span></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p>{{$achievement->getDescription()}}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                @endforeach
+
+                            </ul>
+                        </div>
+                    </div>
+
+                @endif
+
+
             </div>
         </div>
 
 
-        @if(count($activity->getAchievements())>0)
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><strong>Achivements</strong> </h3></div>
-                <div class="panel-body">
-                    <ul class="list-group">
-
-                        @foreach($activity->getAchievements() as $achievement)
-
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <h5 class="text-left"><strong>{{$achievement->getPosition()}} </strong></h5></div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 hidden-xs"><span> </span></div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                        <h5 class="text-right"><strong>{{$achievement->getDate()}} </strong></h5></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12"><span> </span></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p>{{$achievement->getDescription()}}</p>
-                                    </div>
-                                </div>
-                            </li>
-
-                        @endforeach
-
-                    </ul>
-                </div>
-            </div>
-
-        @endif
 
     </div>
 </div>

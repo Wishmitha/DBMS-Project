@@ -128,7 +128,7 @@ Route::post('/stu_rep', [
 //------------------Developmement----------------//
 
 Route::get('test', function () {
-    return view('supervisor/main');
+    return view('admin/reports/stduent_comparison');
 });
 
 /*Route::get('admin/{id}',[

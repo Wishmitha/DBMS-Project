@@ -48,29 +48,14 @@
 
     <div id="reports" style="display: none;">
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand navbar-link" href="#"> </a>
-                </div>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav">
-
-                        <li class><a href="javascript:void(0)" onclick="switchToStudentReports()">Student</a></li></li>
-
-                        <li class><a href="javascript:void(0)" onclick="switchToActivityReports()">Activity</a></li></li>
-
-                    </ul>
-                </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <ul class="nav nav-tabs">
+                    <li class><a href="javascript:void(0)" onclick="switchToStudentReports()">Student</a></li></li>
+                    <li class><a href="javascript:void(0)" onclick="switchToActivityReports()">Activity</a></li></li>
+                </ul>
             </div>
-        </nav>
-
+        </div>
 
         <div id="studentReports">
 
@@ -114,7 +99,7 @@
                                 <label class="control-label" for="pawssword-input-field">Other Student ID</label>
                             </div>
                             <div class="col-sm-6 input-column">
-                                <select class="form-control" >
+                                <select class="form-control" name="otherStudentID">
 
                                     @foreach($admin->getStudents() as $student)
 
