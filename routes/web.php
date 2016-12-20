@@ -59,6 +59,15 @@ Route::post('/login_stu', [
     'as' => 'student_login'
 ]);
 
+Route::post('/insertAct', [
+    'uses' => 'StudentViewController@insertActivity',
+    'as' => 'insert_activity'
+]);
+
+Route::post('/insertAch', [
+    'uses' => 'StudentViewController@insertAchievement',
+    'as' => 'insert_achievement'
+]);
 //------------------------------------------------//
 
 
