@@ -95,7 +95,8 @@ class StudentViewController
         $description = $request->input(['description']);
 
         DB::insert("INSERT INTO achievements (stu_id,act_id,description,date,position) VALUES (?,?,?,?,?)",[$index,$activity,$description,$date,$position]);
-        echo "Record inserted successfully.<br/>";
+
+        return redirect('student/'.$index);
     }
 
     public static function getStudentActivity($index)
@@ -123,7 +124,7 @@ class StudentViewController
 
                 $activity = new Extra_curricular_activity();
                 $activity->setID($queryActivities[$i]->act_id);
-                $activity->setClubID($queryActivities[$i]->sp_id);
+                $activity->setSportID($queryActivities[$i]->sp_id);
 
                 $querySport = DB::select("SELECT sport_name FROM sports WHERE sport_id=?", [$activity->getSportID()]);
 
@@ -136,7 +137,7 @@ class StudentViewController
 
                 $activity = new Extra_curricular_activity();
                 $activity->setID($queryActivities[$i]->act_id);
-                $activity->setClubID($queryActivities[$i]->comp_id);
+                $activity->setCompetitionID($queryActivities[$i]->comp_id);
 
                 $queryComp = DB::select("SELECT competition_name FROM competitions WHERE competition_id=?", [$activity->getCompetitionID()]);
 
@@ -152,5 +153,35 @@ class StudentViewController
         return $allActivities;
     }
 
+    public function studentRegister(Request $request){
+        $stu_id = $request->input(['stu_id']);
+        $f_name = $request->input(['f_name']);
+        $l_name = $request->input(['l_name']);
+        $batch_id = $request->input(['batch_id']);
+        $pwd = $request->input(['password']);
+        $repwd = $request->input(['re_password']);
 
+        //return var_dump($f_name);
+
+        if($pwd == $repwd){
+
+            DB::insert("INSERT INTO students (student_id,first_name,last_name,batch_id) VALUES (?,?,?,?)",[$stu_id,$f_name,$l_name,$batch_id]);
+            DB::insert("INSERT INTO student_login (stu_id,username,password) VALUES (?,?,?)",[$stu_id,$stu_id,hash('ripemd160',$pwd)]);
+
+            //return redirect('student_login');
+
+            $status = "Registration Successful";
+
+            return view('logins/student_login')->with(['status' => $status]);
+
+        }else{
+
+            $status = "Registration Failed : Make sure you repeated your password correctly";
+
+            return view('logins/student_login')->with(['status' => $status]);
+
+        }
+
+
+    }
 }

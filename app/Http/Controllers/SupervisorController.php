@@ -112,7 +112,7 @@ class SupervisorController extends Controller {
 
             if ($supervisor != null) {
 
-                if ($supervisor->getlogin()->getPassword() == $password) {
+                if ($supervisor->getlogin()->getPassword() == hash('ripemd160',$password)) {
                     return Redirect::to(Route('supervisor', [$supID]));
                     //return 'True';
                 } else {

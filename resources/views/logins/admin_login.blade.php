@@ -8,6 +8,8 @@
 
 @section('content')
 
+
+
     @include('logins.components.navbar')
 
     <div id="login">

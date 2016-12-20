@@ -110,7 +110,7 @@ class StudentController extends Controller {
 
       if($student != null) {
 
-          if ($student->getlogin()->getPassword() == $password) {
+          if ($student->getlogin()->getPassword() == hash('ripemd160',$password)) {
               return Redirect::to(Route('student', [$username]));
               //return 'True';
           } else {

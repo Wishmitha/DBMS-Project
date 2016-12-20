@@ -51,7 +51,8 @@ Route::get('student/{id}',[
 ]);
 
 Route::get('student_login', ['uses' => function () {
-    return view('logins/student_login');},
+    $status = null;
+    return view('logins/student_login')->with(['status' => $status]);},
     'as'=>'login_form']);
 
 Route::post('/login_stu', [
@@ -68,6 +69,12 @@ Route::post('/insertAch', [
     'uses' => 'StudentViewController@insertAchievement',
     'as' => 'insert_achievement'
 ]);
+
+Route::post('/reg_stu', [
+    'uses' => 'StudentViewController@studentRegister',
+    'as' => 'student_register'
+]);
+
 //------------------------------------------------//
 
 
@@ -79,7 +86,8 @@ Route::get('supervisor/{id}',[
 ]);
 
 Route::get('supervisor_login', ['uses' => function () {
-    return view('logins/supervisor_login');},
+    $status = null;
+    return view('logins/supervisor_login')->with(['status' => $status]);},
     'as'=>'supervisor_login_form']);
 
 Route::post('/login_sup', [
@@ -90,6 +98,11 @@ Route::post('/login_sup', [
 Route::post('/validate_act', [
     'uses' => 'SupervisorViewController@validateActivity',
     'as' => 'validate_activity'
+]);
+
+Route::post('/reg_sup', [
+    'uses' => 'SupervisorViewController@supervisorRegister',
+    'as' => 'supervisor_register'
 ]);
 
 //------------------------------------------------//

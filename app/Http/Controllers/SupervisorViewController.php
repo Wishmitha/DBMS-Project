@@ -36,4 +36,36 @@ class SupervisorViewController
 
     }
 
+    public function supervisorRegister(Request $request){
+
+        //$sup_id = $request->input(['sup_id']);
+        $f_name = $request->input(['f_name']);
+        $l_name = $request->input(['l_name']);
+        $field = $request->input(['field']);
+        $username = $request->input(['username']);
+        $pwd = $request->input(['password']);
+        $repwd = $request->input(['repassword']);
+
+
+        if($pwd == $repwd) {
+
+            DB::insert("INSERT INTO supervisors (first_name,last_name,field) VALUES (?,?,?)", [$f_name, $l_name, $field]);
+
+            $sup_id = DB::select("SELECT MAX(supervisor_id) as latestID FROM supervisors")[0]->latestID;
+
+            DB::insert("INSERT INTO supervisor_login (sup_id,username,password) VALUES (?,?,?)", [$sup_id, $username, hash('ripemd160', $pwd)]);
+
+            $status = "Registration Successful";
+
+            return view('logins/supervisor_login')->with(['status' => $status]);
+
+        }else{
+
+            $status = "Registration Failed : Make sure you repeated your password correctly";
+
+            return view('logins/supervisor_login')->with(['status' => $status]);
+        }
+
+    }
+
 }
