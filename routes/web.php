@@ -78,6 +78,11 @@ Route::post('/login_sup', [
     'as' => 'supervisor_login'
 ]);
 
+Route::post('/validate_act', [
+    'uses' => 'SupervisorViewController@validateActivity',
+    'as' => 'validate_activity'
+]);
+
 //------------------------------------------------//
 
 //----------------------Admin--------------------//
@@ -122,6 +127,10 @@ Route::post('/stu_rep', [
     'as' => 'student_report'
 ]);
 
+Route::post('/act_rep', [
+    'uses' => 'AdminViewController@createActivityReport',
+    'as' => 'activity_report'
+]);
 
 //------------------------------------------------//
 

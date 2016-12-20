@@ -61,17 +61,18 @@ class Student extends Model{
 
             $activity = new Student_activity();
 
-            $activity->setRole($activities[$i][0]);
-            $activity->setActualEffort($activities[$i][1]);
-            $activity->setDefinedEffort($activities[$i][2]);
-            $activity->setJoinedDate($activities[$i][3]);
-            $activity->setVerification($activities[$i][4]);
-            $activity->setStudentDescription($activities[$i][5]);
-            $activity->setActivity($activities[$i][6]);
-            $activity->setLogo($activities[$i][7]);
-            $activity->setDiv($activities[$i][8]);
-            $activity->setDescription($activities[$i][9]);
-            $activity->setAchievements($activities[$i][10]);
+            $activity->setID($activities[$i][0]);
+            $activity->setRole($activities[$i][1]);
+            $activity->setActualEffort($activities[$i][2]);
+            $activity->setDefinedEffort($activities[$i][3]);
+            $activity->setJoinedDate($activities[$i][4]);
+            $activity->setVerification($activities[$i][5]);
+            $activity->setStudentDescription($activities[$i][6]);
+            $activity->setActivity($activities[$i][7]);
+            $activity->setLogo($activities[$i][8]);
+            $activity->setDiv($activities[$i][9]);
+            $activity->setDescription($activities[$i][10]);
+            $activity->setAchievements($activities[$i][11]);
 
             array_push($this->activities,$activity);
         }

@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DAO\AdminDAO;
 use App\DAO\StudentDAO;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -132,9 +133,38 @@ class AdminViewController
 
         }
 
+    }
+
+    public function createActivityReport (Request$request) {
+
+        $admin_id = $request->input()['adminID'];
+        $activity_id = $request->input()['activityID'];
+        $type = $request->input()['type'];
+
+        $adminDAO = new AdminDAO();
+        $admin = $adminDAO->create($admin_id);
+
+        if($type=="Ind"){
+
+            $activity = $this->selectActivity($admin->getActivities(),$activity_id);
+            return view('admin/reports/activity_individual')->with(['activity' => $activity]);
+
+        }
 
 
 
+    }
+
+    public function selectActivity($activity_list, $activity_id){
+        foreach ($activity_list as $activity_class){
+            foreach ($activity_class as $activity){
+                if ($activity->getID() == $activity_id){
+
+                    return $activity;
+
+                }
+            }
+        }
     }
 
 }

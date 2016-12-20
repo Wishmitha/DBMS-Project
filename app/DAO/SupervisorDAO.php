@@ -234,7 +234,8 @@ class SupervisorDAO
             }
 
             array_push($activity,
-                [$queryStudentActivities[$i]->role,
+                [$queryStudentActivities[$i]->stu_act_id,
+                    $queryStudentActivities[$i]->role,
                     $queryStudentActivities[$i]->effort,
                     $queryActivities[0]->defined_effort,
                     $queryStudentActivities[$i]->joined,

@@ -18,6 +18,7 @@ class Student_activity extends Model {
 
     public $timestamps = true;
 
+    private $id;
     private $role;
     private $actual_effort;
     private $defined_effort;
@@ -32,6 +33,11 @@ class Student_activity extends Model {
     private $achievements=[];
 
     // set attributes
+
+    public function setID($id)
+    {
+        $this->id=$id;
+    }
 
     public function setRole($role)
     {
@@ -97,6 +103,11 @@ class Student_activity extends Model {
     }
 
     //get attributes
+
+    public function getID()
+    {
+        return $this->id;
+    }
 
     public function getRole()
     {

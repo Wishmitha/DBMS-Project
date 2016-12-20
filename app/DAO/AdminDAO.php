@@ -79,6 +79,10 @@ class AdminDAO
 
                 $activity->setSupervisors($supervisorIDS);
 
+                $studentIDS = DB::select("SELECT DISTINCT stu_id FROM student_activity WHERE act_id = ?",[$activity->getID()]);
+
+                $activity->setStudents($studentIDS);
+
                 array_push($allSports,$activity);
             }
 
@@ -101,6 +105,10 @@ class AdminDAO
 
                 $activity->setSupervisors($supervisorIDS);
 
+                $studentIDS = DB::select("SELECT DISTINCT stu_id FROM student_activity WHERE act_id = ?",[$activity->getID()]);
+
+                $activity->setStudents($studentIDS);
+
                 array_push($allClubs,$activity);
             }
 
@@ -122,6 +130,10 @@ class AdminDAO
                 $supervisorIDS = DB::select("SELECT sup_id FROM supervisor_activity WHERE act_id = ?",[$activity->getID()]);
 
                 $activity->setSupervisors($supervisorIDS);
+
+                $studentIDS = DB::select("SELECT DISTINCT stu_id FROM student_activity WHERE act_id = ?",[$activity->getID()]);
+
+                $activity->setStudents($studentIDS);
 
                 array_push($allCompetitions,$activity);
             }

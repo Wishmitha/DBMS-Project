@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\DAO\StudentDAO;
 use App\DAO\SupervisorDAO;
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,7 +38,7 @@ class Extra_curricular_activity extends Model {
 
     //other attributes
 
-    private $students; // students doing this activity
+    private $students=[]; // students doing this activity
     private $supervisors=[]; // supervisors related to the activity
     private $achivements; // achievemnts of this activity
 
@@ -104,6 +105,20 @@ class Extra_curricular_activity extends Model {
         }
     }
 
+    public function setStudents($studentIDS)
+    {
+        if(count($studentIDS)>0) {
+            for ($i = 0; $i < count($studentIDS); $i++) {
+                $studentDAO = new StudentDAO();
+                $student = $studentDAO->create($studentIDS[$i]->stu_id);
+
+                array_push($this->students, $student);
+            }
+        }else{
+            $this->students=[];
+        }
+    }
+
     // get attributes
 
     public function getID(){
@@ -156,6 +171,11 @@ class Extra_curricular_activity extends Model {
     public function getSupervisors()
     {
         return $this->supervisors;
+    }
+
+    public function getStudents()
+    {
+        return $this->students;
     }
 
     // other models
