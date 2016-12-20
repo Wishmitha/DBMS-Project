@@ -149,6 +149,8 @@ class AdminViewController
             $activity = $this->selectActivity($admin->getActivities(),$activity_id);
             return view('admin/reports/activity_individual')->with(['activity' => $activity]);
 
+        }else{
+            return view('admin/reports/activity_student_count')->with(['admin' => $admin]);
         }
 
 
@@ -165,6 +167,36 @@ class AdminViewController
                 }
             }
         }
+    }
+
+    public  function adminRegister(Request $request){
+
+        $f_name = $request->input(['f_name']);
+        $l_name = $request->input(['l_name']);
+        $username = $request->input(['username']);
+        $pwd = $request->input(['password']);
+        $repwd = $request->input(['repassword']);
+
+
+        if($pwd == $repwd) {
+
+            DB::insert("INSERT INTO admins (first_name,last_name) VALUES (?,?)", [$f_name, $l_name]);
+
+            $admin_id = DB::select("SELECT MAX(admin_id) as latestID FROM admins")[0]->latestID;
+
+            DB::insert("INSERT INTO admin_login (admin_id,username,password) VALUES (?,?,?)", [$admin_id, $username, hash('ripemd160', $pwd)]);
+
+            $status = "Registration Successful";
+
+            return view('logins/admin_login')->with(['status' => $status]);
+
+        }else{
+
+            $status = "Registration Failed : Make sure you repeated your password correctly";
+
+            return view('logins/admin_login')->with(['status' => $status]);
+        }
+
     }
 
 }

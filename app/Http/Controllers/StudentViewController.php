@@ -197,9 +197,12 @@ class StudentViewController
     public function deleteActivity(Request $request){
 
         $stu_id = $request->input(['studentID']);
-        $act_id = $request->input(['activityID']);
+        $stu_act_id = $request->input(['activityID']);
 
-        DB::delete("DELETE FROM student_activity WHERE stu_act_id =?",[$act_id]);
+        $act_id = DB::select("SELECT act_id FROM student_activity WHERE stu_act_id =?",[$stu_act_id])[0]->act_id;
+
+        DB::delete("DELETE FROM student_activity WHERE stu_act_id =?",[$stu_act_id]);
+        DB::delete("DELETE FROM achievements WHERE stu_id =".$stu_id." AND act_id =".$act_id);
 
         return redirect('student/'.$stu_id);
 

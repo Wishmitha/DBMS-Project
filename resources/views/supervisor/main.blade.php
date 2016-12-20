@@ -1,6 +1,12 @@
-@include('supervisor.components.navbar')
-
 @extends('layouts.layout')
+
+@section('style')
+
+    @include('styles.admin')
+
+@endsection
+
+@include('supervisor.components.navbar')
 
 @section('content')
 
@@ -13,7 +19,7 @@
     </div>
 
     <div id="editActivities" style="display: none;">
-        EditActivities
+        @include('supervisor.components.editActivity')
     </div>
 
     <script>

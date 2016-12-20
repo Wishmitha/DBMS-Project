@@ -87,7 +87,6 @@
                         <select class="form-control" id="activityReportType" onchange="updateActivityForm()" name="type">
 
                             <option value="Ind" selected="">Individual</option>
-                            <option value="Comp">Comparison</option>
                             <option value="Count">Student Count</option>
 
                         </select>
@@ -102,28 +101,6 @@
                     <div class="col-sm-6 input-column">
 
                         <select class="form-control" name="activityID" value="{{$activity->getID()}}">
-
-                            @foreach($admin->getActivities() as $activityType)
-
-                                @foreach($activityType as $activity)
-
-                                    <option value={{$activity->getID()}} selected="">{{$activity->getActivity()}}</option>
-
-                                @endforeach
-
-                            @endforeach
-
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group" id="otherActivity" style="display: none;">
-                    <div class="col-sm-4 label-column">
-                        <label class="control-label" for="pawssword-input-field">Other Acivity Name</label>
-                    </div>
-                    <div class="col-sm-6 input-column">
-
-                        <select class="form-control" name="otherActivityID" value="{{$activity->getID()}}">
 
                             @foreach($admin->getActivities() as $activityType)
 

@@ -110,6 +110,11 @@ Route::post('/reg_sup', [
     'as' => 'supervisor_register'
 ]);
 
+Route::post('/update_act' , [
+    'uses' => 'SupervisorViewController@updateActivity' ,
+    'as' => 'update_activity'
+]);
+
 //------------------------------------------------//
 
 //----------------------Admin--------------------//
@@ -120,7 +125,8 @@ Route::get('admin/{id}',[
 ]);
 
 Route::get('admin_login', ['uses' => function () {
-    return view('logins/admin_login');},
+    $status = null;
+    return view('logins/admin_login')->with(['status' => $status]);},
     'as'=>'admin_login_form']);
 
 
@@ -157,6 +163,11 @@ Route::post('/stu_rep', [
 Route::post('/act_rep', [
     'uses' => 'AdminViewController@createActivityReport',
     'as' => 'activity_report'
+]);
+
+Route::post('/reg_admin', [
+    'uses' => 'AdminViewController@adminRegister',
+    'as' => 'admin_register'
 ]);
 
 //------------------------------------------------//

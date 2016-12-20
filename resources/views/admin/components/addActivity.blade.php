@@ -20,10 +20,10 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-4 label-column">
-                    <label class="control-label" for="email-input-field" id="activity">Sport Name</label>
+                    <label class="control-label" for="email-input-field" id="activity" >Sport Name</label>
                 </div>
                 <div class="col-sm-6 input-column">
-                    <input class="form-control" type="text" name="activity">
+                    <input class="form-control" type="text" name="activity" required onkeypress='return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >=97 && event.charCode <= 122) || event.charCode ==32'>
                 </div>
             </div>
             <div class="form-group">
@@ -31,7 +31,7 @@
                     <label class="control-label" for="pawssword-input-field">Logo URL</label>
                 </div>
                 <div class="col-sm-6 input-column">
-                    <input class="form-control" type="url" name="logo">
+                    <input class="form-control" type="url" name="logo" required>
                 </div>
             </div>
             <div class="form-group">
@@ -39,7 +39,7 @@
                     <label class="control-label" for="email-input-field" id="division">Team</label>
                 </div>
                 <div class="col-sm-6 input-column">
-                    <input class="form-control" type="text" name="division">
+                    <input class="form-control" type="text" name="division" required>
                 </div>
             </div>
             <div class="form-group">
@@ -47,7 +47,7 @@
                     <label class="control-label" for="email-input-field">Required Effort <em>(Hours per Week)</em></label>
                 </div>
                 <div class="col-sm-6 input-column">
-                    <input class="form-control" type="number" name="effort">
+                    <input class="form-control" type="number" name="effort"  min="1" max="168" required>
                 </div>
             </div>
             <div class="form-group">

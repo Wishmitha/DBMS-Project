@@ -4,11 +4,20 @@
 
     @include('styles.login')
 
+    @include('styles.admin')
+
 @endsection
 
 @section('content')
 
+    @if($status!=null)
 
+        <script>
+            alert("{{$status}}");
+            window.location = 'http://localhost:8000/admin_login';
+        </script>
+
+    @endif
 
     @include('logins.components.navbar')
 
@@ -38,7 +47,7 @@
 
     <div id="register" style="display: none;">
 
-        @include('logins.components.registerForm')
+        @include('logins.components.adminRegistrationForm')
 
     </div>
 

@@ -24,11 +24,23 @@ class AdminDAO
         $admin->setFirstName($queryAdmin[0]->first_name);
         $admin->setLastName($queryAdmin[0]->last_name);
 
-        $admin->setStudents($this->getAllStudents());
+        if(count($this->getAllStudents())>0){
+            $admin->setStudents($this->getAllStudents());
+        }
 
-        $admin->setSupervisors($this->getAllSupervisors());
+        if(count($this->getAllSupervisors())>0){
+            $admin->setSupervisors($this->getAllSupervisors());
+        }
 
-        $admin->setActivities($this->getAllActivities());
+        if(count($this->getAllActivities())>0){
+            $admin->setActivities($this->getAllActivities());
+        }
+
+        //$admin->setStudents($this->getAllStudents());
+
+        //$admin->setSupervisors($this->getAllSupervisors());
+
+        //$admin->setActivities($this->getAllActivities());
 
         $admin->setLogin($this->getLogin($admin->getID()));
 

@@ -110,7 +110,7 @@ class AdminController extends Controller {
 
             if ($admin != null) {
 
-                if ($admin->getlogin()->getPassword() == $password) {
+                if ($admin->getlogin()->getPassword() == hash('ripemd160',$password)) {
                     return Redirect::to(Route('admin', [$adminID]));
                     //return 'True';
                 } else {

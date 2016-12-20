@@ -10,13 +10,6 @@
                         <h4 class="text-right">{{$activity->getDiv()}}</h4></div>
                 </div>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <p>{{$activity->getDescription()}}</p>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
