@@ -75,6 +75,11 @@ Route::post('/reg_stu', [
     'as' => 'student_register'
 ]);
 
+Route::post('/delete_stu_act', [
+    'uses' => 'StudentViewController@deleteActivity',
+    'as' => 'delete_student_activity'
+]);
+
 //------------------------------------------------//
 
 

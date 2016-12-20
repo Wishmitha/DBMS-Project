@@ -7,7 +7,7 @@
                     <label class="control-label" for="ID-input-field">Student ID</label>
                 </div>
                 <div class="col-sm-6 input-column">
-                    <input class="form-control" type="text" name="stu_id" required>
+                    <input class="form-control" type="text" name="stu_id" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                 </div>
             </div>
             <div class="form-group">

@@ -24,6 +24,7 @@
                         <h4 class="text-right">{{$activity->getDiv()}}</h4></div>
                 </div>
             </div>
+
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-6 col-xs-3"><span> </span></div>
@@ -83,6 +84,20 @@
 
                 @endif
 
+                <div class="row">
+
+                    <form method="post" action="{{ route('delete_student_activity') }}">
+
+                        <input type="hidden" name="studentID" value={{$student->getID()}}>
+                        <input type="hidden" name="activityID" value={{$activity->getID()}}>
+
+                        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11"></div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                            {{ csrf_field() }}
+                            <button class="btn btn-default" type="submit">Delete </button>
+                        </div>
+                    </form>
+                </div>
 
             </div>
         </div>

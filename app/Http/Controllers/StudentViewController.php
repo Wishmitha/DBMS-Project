@@ -12,6 +12,7 @@ namespace App\Http\Controllers;
 use App\Extra_curricular_activity;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use \Illuminate\Database\QueryException;
 use Symfony\Component\HttpFoundation\Request;
 
 class StudentViewController
@@ -25,9 +26,17 @@ class StudentViewController
         $joined = $request->input(['joined']);
         $description = $request->input(['description']);
 
-        DB::insert("INSERT INTO student_activity (stu_id,act_id,role,effort,joined,is_validated,description) VALUES (?,?,?,?,?,?,?)",[$index,$activity,$role,$effort,$joined,0,$description]);
+        try {
 
-        return redirect('student/'.$index);
+            DB::insert("INSERT INTO student_activity (stu_id,act_id,role,effort,joined,is_validated,description) VALUES (?,?,?,?,?,?,?)", [$index, $activity, $role, $effort, $joined, 0, $description]);
+
+            return redirect('student/'.$index);
+
+        }catch (QueryException $ex){
+
+            return redirect("http://httperrorpages.andidittrich.de/HTTP400.html");
+        }
+
     }
 
     public static function getActivityData()
@@ -181,6 +190,18 @@ class StudentViewController
             return view('logins/student_login')->with(['status' => $status]);
 
         }
+
+
+    }
+
+    public function deleteActivity(Request $request){
+
+        $stu_id = $request->input(['studentID']);
+        $act_id = $request->input(['activityID']);
+
+        DB::delete("DELETE FROM student_activity WHERE stu_act_id =?",[$act_id]);
+
+        return redirect('student/'.$stu_id);
 
 
     }

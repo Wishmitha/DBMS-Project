@@ -31,10 +31,10 @@
             </div>
             <div class="form-group">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 label-column">
-                    <label class="control-label" for="name-input-field">date </label>
+                    <label class="control-label" for="name-input-field">Date </label>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 input-column">
-                    <input class="form-control" type="date" name="date">
+                    <input class="form-control" type="date" name="date" min="2011-01-01" max={{date("Y-m-d")}} required>
                 </div>
             </div>
             <div class="form-group">
@@ -42,7 +42,7 @@
                     <label class="control-label" for="name-input-field">Achievement </label>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 input-column">
-                    <input class="form-control input" type="text" name="position" placeholder="Ex: Winner,Best Rotaractor of the month">
+                    <input class="form-control input" type="text" name="position" placeholder="Ex: Winner, Runners Up" required onkeypress='return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >=97 && event.charCode <= 122) || event.charCode ==32'>
                 </div>
             </div>
             <div class="form-group">
